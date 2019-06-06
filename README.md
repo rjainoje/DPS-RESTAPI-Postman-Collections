@@ -18,6 +18,5 @@ DataDomain
    DataDomain
    DataDomain Management Center
 ECDM
-
-	* Erste Ebene dieser Liste.
-* Um eine zweite Ebene zu erstellen, geben Sie zwei Leerzeichen vor dem Stern bzw. der Zahl ein.
+ * Erste Ebene dieser Liste.
+   * Um eine zweite Ebene zu erstellen, geben Sie zwei Leerzeichen vor dem Stern bzw. der Zahl ein.
