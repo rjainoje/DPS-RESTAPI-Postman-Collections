@@ -8,9 +8,9 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
 
 Content
 
-*NetWorker  
- *NetWorker 19.1  
-  *Authenticate against a NW Server  
+* NetWorker  
+ * NetWorker 19.1  
+  * Authenticate against a NW Server  
 Avamar  
   Avamar 19.1  
     Authenticare against an ave host
