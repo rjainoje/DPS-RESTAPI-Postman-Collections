@@ -12,7 +12,7 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
  3* Authenticate against a NW Server  
 * Avamar  
   * Avamar 19.1
-   * Authenticare against an ave host
+    * Authenticare against an ave host
 DataDomain
    DataDomain
    DataDomain Management Center
