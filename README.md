@@ -7,13 +7,13 @@ In this Postman collections I do work with an envirnment (_env) where I define a
 There are ReST API commands for NetWorker, Avamar, DataDomain and more will follow
 
 # Content
- * NetWorker  
- 2* NetWorker 19.1  
- 3* Authenticate against a NW Server  
+* NetWorker  
+  * NetWorker 19.1  
+    * Authenticate against a NW Server  
 * Avamar  
   * Avamar 19.1
-    * Authenticare against an ave host
-DataDomain
-   DataDomain
-   DataDomain Management Center
-ECDM
+    * Authenticare against an ave host  
+* DataDomain
+  * DataDomain
+  * DataDomain Management Center
+* ECDM
