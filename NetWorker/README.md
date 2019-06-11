@@ -13,7 +13,7 @@ There are ReST API commands for NetWorker
   * NetWorker 18.2  
       * environment variables
       * Authenticate against a NW Server  
-      * Swagger File for internal use.
+      * Swagger File for better api understanding.
 
 
       When having a swagger api file like NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what you can use. Use adminstrator and password for login.
