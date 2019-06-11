@@ -20,6 +20,9 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
   * Avamar 19.1
     * environment variables
     * Authenticate against an ave host  
+  * Avamar 18.2
+    * environment variables
+    * Authenticate against an ave host  
 * DataDomain
   * DataDomain
   * DataDomain Management Center
