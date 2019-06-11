@@ -12,6 +12,9 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
 * NetWorker  
   * NetWorker 19.1  
     * environment variables
+    * Authenticate against a NW Server
+  * NetWorker 18.2  
+    * environment variables
     * Authenticate against a NW Server  
 * Avamar  
   * Avamar 19.1
