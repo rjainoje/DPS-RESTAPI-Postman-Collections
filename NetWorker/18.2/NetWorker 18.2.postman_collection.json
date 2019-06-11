@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "71237b6b-b714-423d-be00-8861a007c3db",
+		"name": "NetWorker 18.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Restapi entrypoint",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Password12",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swaggerfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"schemas",
+								"swagger.json"
+							]
+						},
+						"description": "JSON Editor Online - view, edit and format JSON online\r\nhttps://jsoneditoronline.org/"
+					},
+					"response": []
+				},
+				{
+					"name": "restapi v1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v1",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restapi v2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v2",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NetWorker REST API v3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/global",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v2/global",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v2",
+								"global"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v3/global",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JSON schema for API messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/nwrestapi.json",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"schemas",
+								"nwrestapi.json"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2307d930-0140-4442-9abd-469bd1968532",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba363e7f-d0ad-4f5b-b53a-2e87563f4566",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "administrator",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "Password123!",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "44c0aba0-34d9-4c23-ad57-d0f2a5c2a3b9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fba5e89f-3f3e-47db-afef-eb7656df369a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
