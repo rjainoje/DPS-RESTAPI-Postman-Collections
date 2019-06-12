@@ -55,6 +55,7 @@ C1oudBoost-18.2.0      PoweredOn       4       16.000
 ```
 
 # Get the UUID from individual VMs  
-```PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.uuid}
+```  
+PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.uuid}  
 564d099c-d5ac-023c-bcdf-262dcd43117a
 ```
