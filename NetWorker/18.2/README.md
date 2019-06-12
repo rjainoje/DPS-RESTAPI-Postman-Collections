@@ -1,7 +1,7 @@
 # DELLEMC-DPS-ReST-api NetWorker 18.2
 
-When having a swagger api file like one from NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what we can use. Use administrator and password for login.
-NetWorker always uses this swagger file: https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json
+This repository contains many ReST API collection for Postman https://www.getpostman.com/downloads/.  
+In this Postman collections I do work with an envirnment (_environment.json) where I define all variables needed to work with the ReST Api like Server or login or auth token where needed and the api collection (_collection.json) where I do use this variables. So make sure you do import the environment plus the collection into Postman.
 
 You will find postman_collection.json and postman_environment.json files which are the collection and the environment variables I am using to make things more transparent. I do recommand to import both files into Postman so you can work with. Do not forget to set the environment you have imported.
 
@@ -19,3 +19,8 @@ You will find postman_collection.json and postman_environment.json files which a
         * start a policy  
         * get a job information with logs  
       * Demo workflow for VMWare  
+
+# swagger file
+
+      When having a swagger api file like one from NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what api calls are available to use. Use NetWorker administrator and password for login.
+      NetWorker always uses this swagger file: https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json
