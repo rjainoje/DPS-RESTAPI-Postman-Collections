@@ -28,14 +28,14 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
   * DataDomain Management Center
 * ECDM
 
-Connect to the vcenter Server with:
+# Connect to the vcenter Server with:
 Connect-VIServer -Server vcenter01 -User admin -Password pass  
 Connect-VIServer -Server vcenter01.demo.local -User administrator@demo.local -Password Password123!  
 
-Get the UUID from the ESXi Server   
+# Get the UUID from the ESXi Server   
 Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }  
 
-#Which VMs do you have
+# Which VMs do you have
 PS C:\> get—VM
 
 Name                   PowerState   Num CPUs MemoryGB
