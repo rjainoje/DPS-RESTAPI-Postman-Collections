@@ -11,6 +11,11 @@ You will find postman_collection.json and postman_environment.json files which a
     * environment variables - postman_environment.json
     * Postman collection - postman_collection.json
       * Authenticate against a NW Server - How to login and what Rest endpoint to use with NetWorker
-      * Demo Workflow - create a client and backup a saveset to DD
-        * Create a NetWorker Client
-        * Change saveset for client
+      * Demo workflow - create a client and backup a saveset to DD
+        * Create a NetWorker client  
+        * Create a Protectiongroup  
+        * create a policy  
+        * define a workflow for backup  
+        * start a policy  
+        * get a job information with logs  
+      * Demo workflow for VMWare  
