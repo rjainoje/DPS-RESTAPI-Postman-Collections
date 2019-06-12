@@ -33,10 +33,10 @@ https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
 
 # Connect to the vcenter Server with:  
 Connect-VIServer -Server vcenter01 -User admin -Password pass  
-Connect-VIServer -Server vcenter01.demo.local -User administrator@demo.local -Password Password123!  
+```PS C:\> Connect-VIServer -Server vcenter01.demo.local -User administrator@demo.local -Password Password123!  ```  
 
 # Get the UUID from the ESXi Server     
-Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }  
+```PS C:\> Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }  ```  
 
 # Which VMs do you have    
 ```
