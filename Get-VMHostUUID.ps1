@@ -1,6 +1,6 @@
 param([string]$vc = "vc", [string]$container = "container", [string[]]$vmhosts = $null)
 
-#add the snapin, just in case
+# add the snapin, just in case
 Add-PSSnapin VMware.VimAutomation.Core
 
 #Show Usage
