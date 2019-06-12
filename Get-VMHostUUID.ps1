@@ -14,7 +14,7 @@ function usage()
     write-host -foregroundcolor green `t"if -container is not used, it pulls ALL hosts from the given vCenter" `n
    	write-host -foregroundcolor green `t"You can use either -vmhosts by itself, or -vc, not a combination of them, and -container is optional." `n
 	}
-    
+
 function Get_UUID()
 {
     foreach ($vmhost in $vmhosts)
@@ -38,7 +38,7 @@ function Get_UUID()
         #disconnect from vcenter
         {
         disconnect-viserver -confirm:$false
-        }      
+        }
 }
 
 #check to make sure we have all the args we need
@@ -48,21 +48,21 @@ if (($vmhosts -eq $null) -and ($vc -eq "vc"))
 	usage
     break
 	}
-    
+
 elseif (($vmhosts -ne $null) -and ($vc -ne "vc"))
     #if both vmhosts and vc was supplied
 	{
 	usage
     break
 	}
-    
+
 elseif (($vmhosts -ne $null) -and ($container -ne "container"))
     #if both vmhosts and container was supplied
 	{
 	usage
     break
 	}
-    
+
 elseif (($vmhosts -ne $null) -and (($vc -eq "vc") -or ($container -eq "container")))
     #if only vmhosts is used, set our esx variable to 1 and get credentials
 	{
@@ -80,7 +80,7 @@ elseif (($vmhosts -eq $null) -and (($vc -ne "vc") -and ($container -eq "containe
     $vmhosts = get-vmhost | sort name
     Get_UUID
 	}
-    
+
 elseif (($vmhosts -eq $null) -and (($vc -ne "vc") -and ($container -ne "container")))
     #if vc and container are used, set our vcenter variable to 1, get credentials, and populate vmhosts
 	{
@@ -90,7 +90,7 @@ elseif (($vmhosts -eq $null) -and (($vc -ne "vc") -and ($container -ne "containe
     $vmhosts = get-vmhost -location $container | sort name
     Get_UUID
 	}
-    
+
 #garbage collection
 $vmhost_creds = $null
 $vc_creds = $null
@@ -98,4 +98,4 @@ $vmhosts = $null
 $vc = $null
 $container = $null
 $esx = $null
-$vcenter = $null
+$vcenter = $nullno
