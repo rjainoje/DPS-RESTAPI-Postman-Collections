@@ -1,0 +1,742 @@
+{
+	"info": {
+		"_postman_id": "623f4fc1-4c10-48f0-8da6-19cb7fc736fd",
+		"name": "NetWork 19.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Restapi entrypoint",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Password12",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swaggerfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"schemas",
+								"swagger.json"
+							]
+						},
+						"description": "JSON Editor Online - view, edit and format JSON online\r\nhttps://jsoneditoronline.org/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lagacy Backup",
+			"item": [
+				{
+					"name": "Get all NW Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?fl=hostname",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "hostname"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all avail Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/?fl=name",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								""
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all avail Protection Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?fl=name",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Protection Group - Type: Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Demo_ProtectionGroup\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get new Protection Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?q=name:Demo_ProtectionGroup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "name:Demo_ProtectionGroup"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"sql-01.demo.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients"
+							]
+						},
+						"description": "Make sure you can do a nslookup of the client you created. If not create an entry into NetWorkers hostfile under:\n>notepad %windir%\\system32\\drivers\\etc\\hosts\nentster the ip from the NW Server with a hostname\n192.168.1.11 \tnwdemo.demo.local"
+					},
+					"response": []
+				},
+				{
+					"name": "Get fresh created NW Clients ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?fl=hostname, resourceid&q=hostname:\"sql-01.demo.local\"",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "hostname, resourceid"
+								},
+								{
+									"key": "q",
+									"value": "hostname:\"sql-01.demo.local\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client by resourceId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"ok-sql2\",\r\n   \"saveSets\":[\r\n      \"C:\\\\nix\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"BOB2019_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116"
+							]
+						},
+						"description": "Copy and paste from the last query the RessourceID from that client"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"sql-01.demo.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\install\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Policy - DemoPolicy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"comment\": \"Created Policy via ReST api\",\n            \"name\": \"DemoPolicy\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate the new Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/?q=name:DemoPolicy",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								""
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "name:DemoPolicy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Workflow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Demo_Workflow1\",\r\n  \"autoStartEnabled\": true,\r\n  \"description\": \"Workflow created by REST API call\",\r\n  \"enabled\": true,\r\n  \"endTime\": \"23:00\",\r\n  \"protectionGroups\": [\r\n\t\"Demo_ProtectionGroup\"\r\n  ],\r\n  \"startInterval\": \"24:00\",\r\n  \"startTime\": \"19:00\",\r\n  \"actions\": [\r\n\t{\r\n\t  \"actionSpecificData\": {\r\n\t\t\"backup\": {\r\n\t\t  \"backupSpecificData\": {\r\n\t\t\t\"traditional\": {\r\n\t\t\t  \"destinationPool\": \"BOOST\"\r\n\t\t\t}\r\n\t\t  },\r\n\t\t  \"retentionPeriod\": \"1 Months\"\r\n\t\t}\r\n\t  },\r\n\t  \"name\": \"backup\",\r\n\t  \"scheduleActivities\": [\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\"\r\n\t  ],\r\n\t  \"schedulePeriod\": \"Week\"\r\n\t}\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"DemoPolicy",
+								"workflows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list available pools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Workflow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Demo_Workflow1\",\r\n  \"autoStartEnabled\": true,\r\n  \"description\": \"Workflow created by REST API call\",\r\n  \"enabled\": true,\r\n  \"endTime\": \"23:00\",\r\n  \"protectionGroups\": [\r\n\t\"Demo_ProtectionGroup\"\r\n  ],\r\n  \"startInterval\": \"24:00\",\r\n  \"startTime\": \"19:00\",\r\n  \"actions\": [\r\n\t{\r\n\t  \"actionSpecificData\": {\r\n\t\t\"backup\": {\r\n\t\t  \"backupSpecificData\": {\r\n\t\t\t\"traditional\": {\r\n\t\t\t  \"destinationPool\": \"ddve01demolocal\"\r\n\t\t\t}\r\n\t\t  },\r\n\t\t  \"retentionPeriod\": \"1 Months\"\r\n\t\t}\r\n\t  },\r\n\t  \"name\": \"backup\",\r\n\t  \"scheduleActivities\": [\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\"\r\n\t  ],\r\n\t  \"schedulePeriod\": \"Week\"\r\n\t}\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"DemoPolicy",
+								"workflows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Workflow Information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows/Demo_Workflow1",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"DemoPolicy",
+								"workflows",
+								"Demo_Workflow1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Workflow - add clone action",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"actions\": [\n        {\n            \"actionSpecificData\": {\n                \"backup\": {\n                    \"destinationStorageNodes\": [\n                        \"nsrserverhost\"\n                    ],\n                    \"successThreshold\": \"Success\",\n                    \"retentionPeriod\": \"2 Months\",\n                    \"overrideRetentionPeriod\": false,\n                    \"backupSpecificData\": {\n                        \"traditional\": {\n                            \"forceBackupLevel\": \"\",\n                            \"fileInactivityAlertThresholdPercentage\": 0,\n                            \"revertToFullWhenSyntheticFullFails\": true,\n                            \"estimate\": false,\n                            \"timestampFormat\": \"None\",\n                            \"fileInactivityThresholdInDays\": 0,\n                            \"verifySyntheticFull\": true,\n                            \"destinationPool\": \"BOOST\"\n                        }\n                    },\n                    \"clientOverride\": \"ClientCanOverride\",\n                    \"overrideBackupSchedule\": false\n                }\n            },\n            \"completionNotification\": {\n                \"command\": \"\",\n                \"executeOn\": \"Ignore\"\n            },\n            \"concurrent\": false,\n            \"drivenBy\": \"\",\n            \"enabled\": true,\n            \"failureImpact\": \"Continue\",\n            \"hardLimit\": \"00:00\",\n            \"inactivityTimeoutInMin\": 30,\n            \"name\": \"backup\",\n            \"parallelism\": 100,\n            \"retries\": 1,\n            \"retryDelayInSec\": 30,\n            \"scheduleActivities\": [\n                \"full\",\n                \"full\",\n                \"full\",\n                \"full\",\n                \"full\",\n                \"full\",\n                \"full\"\n            ],\n            \"schedulePeriod\": \"Week\",\n            \"softLimit\": \"00:00\"\n        },\n        {\n            \"actionSpecificData\": {\n                \"clone\": {\n                    \"deleteSource\": false,\n                    \"destinationPool\": \"BOOSTCLONE\",\n                    \"ddRetentionLockTime\": \"\",\n                    \"retentionPeriod\": \"2 Months\",\n                    \"enableDDRetentionLock\": false\n                }\n            },\n            \"comment\": \"\",\n            \"completionNotification\": {\n                \"command\": \"\",\n                \"executeOn\": \"Ignore\"\n            },\n            \"concurrent\": false,\n            \"drivenBy\": \"backup\",\n            \"enabled\": true,\n            \"failureImpact\": \"Continue\",\n            \"hardLimit\": \"00:00\",\n            \"inactivityTimeoutInMin\": 30,\n            \"name\": \"clone\",\n            \"parallelism\": 0,\n            \"retries\": 1,\n            \"retryDelayInSec\": 1,\n            \"scheduleActivities\": [\n                \"exec\",\n                \"exec\",\n                \"exec\",\n                \"exec\",\n                \"exec\",\n                \"exec\",\n                \"exec\"\n            ],\n            \"scheduleOverrides\": [],\n            \"schedulePeriod\": \"Week\",\n            \"softLimit\": \"00:00\"\n        }\n    ],\n    \"autoStartEnabled\": true,\n    \"completionNotification\": {\n        \"command\": \"\",\n        \"executeOn\": \"Ignore\"\n    },\n    \"description\": \"Traditional Backup to pool BOOST, with expiration 1 Months;\",\n    \"enabled\": true,\n    \"endTime\": \"23:00\",\n    \"links\": [\n        {\n            \"href\": \"https://172.16.10.122:9090/nwrestapi/v3/global/protectionpolicies/MyPolicyBOB2019/workflows/BOB2019_Workflow1/op/backup\",\n            \"title\": \"Run policy workflow\"\n        },\n        {\n            \"href\": \"https://172.16.10.122:9090/nwrestapi/v3/global/protectionpolicies/MyPolicyBOB2019/workflows/BOB2019_Workflow1/jobgroups\",\n            \"title\": \"List of job groups\"\n        }\n    ],\n    \"name\": \"BOB2019_Workflow1\",\n    \"nextStartDate\": \"2019-01-29T19:00:00+01:00\",\n    \"protectionGroups\": [\n        \"BOB2019_ProtectionGroup\"\n    ],\n    \"restartTimeWindow\": \"12:00\",\n    \"startInterval\": \"24:00\",\n    \"startTime\": \"19:00\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows/Demo_Workflow1",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"DemoPolicy",
+								"workflows",
+								"Demo_Workflow1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run Workflow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows/Demo_Workflow1/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"DemoPolicy",
+								"workflows",
+								"Demo_Workflow1",
+								"op",
+								"backup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Job Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/737916",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"737916"
+							]
+						},
+						"description": "The \"Run Workflow\" should return in the Headers a Location like:\nLocation →https://192.168.1.20:9090/nwrestapi/v3/global/jobs/1414343\nuse this one to identify the job which run"
+					},
+					"response": []
+				},
+				{
+					"name": "View job log",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1414343/log",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1414343",
+								"log"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "Password123!",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "administration",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7fa4f9d9-fe98-41af-b24a-5f66821f2632",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a731c4ea-7e3a-4661-bca1-2d36d76a0e7e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
