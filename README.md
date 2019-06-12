@@ -27,10 +27,8 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
   * DataDomain
   * DataDomain Management Center
 * ECDM
-* Get-VMHostUUID.ps1 - script to get VM PowerShell from: http://thephuck.com/scripts/script-to-pull-host-uuid-for-vmware-powercli/
-Usage is like this:  
-Get-VMHostUUID.ps1 -vc vcenterserver -container cluster1/folder/dc/etc or   
-Get-VMHostUUID.ps1 -vmhosts ("host1","host2","host3")  
 
+Connect to the vcenter Server with:
+Connect-VIServer -Server vcenter01 -User admin -Password pass  
 
-Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }
+Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }  
