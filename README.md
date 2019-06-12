@@ -31,3 +31,7 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
 Usage is like this:  
 Get-VMHostUUID.ps1 -vmhosts ("host1","host2","host3") or  
 Get-VMHostUUID.ps1 -vc vcenterserver -container cluster1/folder/dc/etc  
+
+you need to have PowerShell installed  
+
+iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
