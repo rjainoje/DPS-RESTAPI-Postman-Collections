@@ -80,3 +80,4 @@ ExtensionData : VMware.Vim.ServiceInstance
 Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
 
 ```
+https://vcenter01.demo.local/mob/?moid=ha-host&doPath=hardware.systemInfo
