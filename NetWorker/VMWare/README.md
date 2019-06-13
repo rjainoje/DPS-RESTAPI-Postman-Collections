@@ -56,7 +56,7 @@ Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
 
 ```  
 
-# Find you infromation on https://vcenter01.demo.local/mob   
+# Find you information on https://vcenter01.demo.local/mob   
 Login !!
 * let's find the vm, the content  
 ```
