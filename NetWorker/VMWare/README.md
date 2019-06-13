@@ -29,11 +29,13 @@ C1oudBoost-18.2.0      PoweredOn       4       16.000
 # Get a list of VMs with datastore and more  
 ```
 Get-VM |
-Select Name,
-@{N="Datastore";E={[string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
-@{N="UsedSpaceGB";E={[math]::Round($_.UsedSpaceGB,1)}},
-@{N="ProvisionedSpaceGB";E={[math]::Round($_.ProvisionedSpaceGB,1)}},
-@{N="Folder";E={$_.Folder.Name}}
+  Select Name,
+@{N = 'GuestOS'; E = {$_.ExtensionData.Guest.GuestFullName}},
+@{N = "Datastore"; E = {[string]::Join(',', (Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
+@{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
+@{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
+@{N = "Folder"; E = {$_.Folder.Name}} |
+  Sort-Object -Property Folder
 ```
 # Get the UUID from individual VMs  
 ```  
