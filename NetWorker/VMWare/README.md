@@ -26,7 +26,15 @@ NW—vproxy—insta11      PoweredOn       4        8.000
 AVE—02                 PoweredOn       2        6.000  
 C1oudBoost-18.2.0      PoweredOn       4       16.000  
 ```
-
+# Get a list of VMs with datastore and more  
+```
+Get-VM |
+Select Name,
+@{N="Datastore";E={[string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
+@{N="UsedSpaceGB";E={[math]::Round($_.UsedSpaceGB,1)}},
+@{N="ProvisionedSpaceGB";E={[math]::Round($_.ProvisionedSpaceGB,1)}},
+@{N="Folder";E={$_.Folder.Name}}
+```
 # Get the UUID from individual VMs  
 ```  
 PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.instanceUuid}  
