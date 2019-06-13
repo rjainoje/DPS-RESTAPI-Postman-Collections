@@ -79,35 +79,38 @@ RefCount      : 2
 ExtensionData : VMware.Vim.ServiceInstance
 Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
 
-```
-https://vcenter01.demo.local/mob
+```  
+
+# Find you infromation on https://vcenter01.demo.local/mob   
 Login !!
-let"s find the vm, the content  
+* let's find the vm, the content  
+```
 Search for: content	ServiceContent	content  
 Click on: content  
+```
 
-Navigate to the datacenter your vm is in  
-Search for: rootFolder	ManagedObjectReference:Folder	group-d1 (Datacenters)  
-Click on: group-d1 (Datacenters)  
+__Navigate to the datacenter your vm is in__   
+__Search for:__ rootFolder	ManagedObjectReference:Folder	group-d1 (Datacenters)  
+__Click on:__ group-d1 (Datacenters)  
 
-Now reference the datastore you wanna nrowse
-Search for: datastore	ManagedObjectReference:Datastore[]	  
+__Now reference the datastore you wanna browse__  
+__Search for:__ datastore	ManagedObjectReference:Datastore[]	  
 datastore-30 (LocalDS100Gb)  
 datastore-62 (Datastore2)  
 datastore-444 (Datastore)  
 datastore-561 (RestoreDS1)    
-Click on: datastore-30 (LocalDS100Gb) 
+__Click on:__ datastore-30 (LocalDS100Gb)
 
-Here youo willll find the vms
-Search for: vm	ManagedObjectReference:VirtualMachine[]  	
+__Here youo will find the vms__  
+__Search for:__ vm	ManagedObjectReference:VirtualMachine[]  	
 vm-31 (OracleCentos)  
 vm-487 (NW-vproxy-installer-3.0.0-4)  
-  
-Click on: vm-31 (OracleCentos)    
 
-Get the confif of the chosen vm  
-Search for: config	VirtualMachineConfigInfo	config  
-Click on: config  
+__Click on:__ vm-31 (OracleCentos)    
 
-Search for: instanceUuid   
-here you will find a string	with the uuid "501123d1-0cba-d9af-bb3f-5f5937023d0c"  
+__Get the config of the chosen vm__  
+__Search for:__ config	VirtualMachineConfigInfo	config  
+__Click on:__ config  
+
+__Search for:__ instanceUuid   
+here you will find a __string__	with the __uuid__ "501123d1-0cba-d9af-bb3f-5f5937023d0c"  
