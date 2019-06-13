@@ -55,4 +55,40 @@ C1oudBoost-18.2.0      PoweredOn       4       16.000
 ```  
 PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.uuid}  
 564d099c-d5ac-023c-bcdf-262dcd43117a
+
+# Get the UUID from the vcenter Server
+PowerShell is your friend when you need some Information from vCenter like UUID  
+https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
+
+# Connect to the vcenter Server with:  
+Connect-VIServer -Server vcenter01 -User admin -Password pass  
+```PS C:\> Connect-VIServer -Server vcenter01.demo.local -User administrator@demo.local -Password Password123!  ```  
+
+# Get the UUID from the ESXi Server     
+```PS C:\> Get-VMhost | Get-View | % { $_.hardware.systeminfo.uuid }  ```  
+
+# Which VMs do you have    
+```
+PS C:\> get—VM
+
+Name                   PowerState   Num CPUs MemoryGB  
+search_18.2.0.2410     PoweredOn       8       32.000  
+emc-dpc—ova—18.2.0—4   PoweredOn       4        8.000  
+AVE—01                 PoweredOn       2        6.000  
+SQL—Ol                 PoweredOn       1        4.000  
+0rac1eCentos           PoweredOn       1        3.906  
+avproxy.demo.1oca1     PoweredOn       4        4.000  
+NW—vproxy—insta11      PoweredOn       4        8.000  
+AVE—02                 PoweredOn       2        6.000  
+C1oudBoost-18.2.0      PoweredOn       4       16.000  
+```
+
+# Get the UUID from individual VMs  
+```  
+PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.uuid}  
+564d099c-d5ac-023c-bcdf-262dcd43117a  
+```   
+```  
+# Get vCenter Server UUID
+PS C:\> Get-VC -Server vcenter01.demo.local | fl 
 ```
