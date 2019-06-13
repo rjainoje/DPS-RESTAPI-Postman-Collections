@@ -1,4 +1,4 @@
-# Tips and tricks to information you need for NetWorker ReST api
+# Tips and tricks you need for NetWorker ReST api
 
 # PowerShell with vCenter communcation  
 PowerShell is your friend when you need some Information from vCenter like UUID  
