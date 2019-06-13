@@ -40,6 +40,7 @@ Generate the code
 ```
 java -jar swagger-codegen-cli-2.4.5.jar generate -i ./swagger.json -l python -o REST_API
 ```
+# PowerShell with vCenter communcation  
 PowerShell is your friend when you need some Information from vCenter like UUID  
 https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
 
@@ -68,6 +69,32 @@ C1oudBoost-18.2.0      PoweredOn       4       16.000
 
 # Get the UUID from individual VMs  
 ```  
-PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.uuid}  
+PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.instanceUuid}  
 564d099c-d5ac-023c-bcdf-262dcd43117a
 ```
+
+# Get vCenter Server UUID  
+```
+PS C:\> Get-VC -Server vcenter01.demo.local | fl  
+
+IsConnected   : True  
+Id            : /VIServer=demo\administrator@vcenter01.demo.local:443/
+ServiceUri    : https://vcenter01.demo.local/sdk
+SessionSecret : "1440f77370739aa8bb665588f04dc0750bb267ba"
+Name          : vcenter01.demo.local
+Port          : 443
+SessionId     : "1440f77370739aa8bb665588f04dc0750bb267ba"
+User          : DEMO\Administrator
+Uid           : /VIServer=demo\administrator@vcenter01.demo.local:443/
+Version       : 6.5.0
+Build         : 7801515
+ProductLine   : vpx
+InstanceUuid  : 3c3fd077-814a-44b4-911c-3be3eecb479d
+RefCount      : 2
+ExtensionData : VMware.Vim.ServiceInstance
+Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
+
+```
+https://vcenter01.demo.local/mob
+Search for:
+Click on:
