@@ -81,5 +81,33 @@ Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
 
 ```
 https://vcenter01.demo.local/mob
-Search for:
-Click on:
+Login !!
+let"s find the vm, the content  
+Search for: content	ServiceContent	content  
+Click on: content  
+
+Navigate to the datacenter your vm is in  
+Search for: rootFolder	ManagedObjectReference:Folder	group-d1 (Datacenters)  
+Click on: group-d1 (Datacenters)  
+
+Now reference the datastore you wanna nrowse
+Search for: datastore	ManagedObjectReference:Datastore[]	  
+datastore-30 (LocalDS100Gb)  
+datastore-62 (Datastore2)  
+datastore-444 (Datastore)  
+datastore-561 (RestoreDS1)    
+Click on: datastore-30 (LocalDS100Gb) 
+
+Here youo willll find the vms
+Search for: vm	ManagedObjectReference:VirtualMachine[]  	
+vm-31 (OracleCentos)  
+vm-487 (NW-vproxy-installer-3.0.0-4)  
+  
+Click on: vm-31 (OracleCentos)    
+
+Get the confif of the chosen vm  
+Search for: config	VirtualMachineConfigInfo	config  
+Click on: config  
+
+Search for: instanceUuid   
+here you will find a string	with the uuid "501123d1-0cba-d9af-bb3f-5f5937023d0c"  
