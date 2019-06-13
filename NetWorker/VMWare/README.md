@@ -4,7 +4,7 @@
 PowerShell is your friend when you need some Information from vCenter like UUID  
 https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
 
-# Connect to the vcenter Server with:  
+# Connect to the vcenter Server with your Windows PowerShell:  
 Connect-VIServer -Server vcenter01 -User admin -Password pass  
 ```PS C:\> Connect-VIServer -Server vcenter01.demo.local -User administrator@demo.local -Password Password123!  ```  
 
