@@ -1,3 +1,4 @@
+# Tips and tricks to information you need for NetWorker ReST api
 
 # PowerShell with vCenter communcation  
 PowerShell is your friend when you need some Information from vCenter like UUID  
@@ -53,7 +54,38 @@ RefCount      : 2
 ExtensionData : VMware.Vim.ServiceInstance
 Client        : VMware.VimAutomation.ViCore.Impl.V1.VimClient
 
+```  
+
+# Find you infromation on https://vcenter01.demo.local/mob   
+Login !!
+* let's find the vm, the content  
 ```
-https://vcenter01.demo.local/mob
-Search for:
-Click on:
+Search for: content	ServiceContent	content  
+Click on: content  
+```
+
+__Navigate to the datacenter your vm is in__   
+__Search for:__ rootFolder	ManagedObjectReference:Folder	group-d1 (Datacenters)  
+__Click on:__ group-d1 (Datacenters)  
+
+__Now reference the datastore you wanna browse__  
+__Search for:__ datastore	ManagedObjectReference:Datastore[]	  
+datastore-30 (LocalDS100Gb)  
+datastore-62 (Datastore2)  
+datastore-444 (Datastore)  
+datastore-561 (RestoreDS1)    
+__Click on:__ datastore-30 (LocalDS100Gb)
+
+__Here youo will find the vms__  
+__Search for:__ vm	ManagedObjectReference:VirtualMachine[]  	
+vm-31 (OracleCentos)  
+vm-487 (NW-vproxy-installer-3.0.0-4)  
+
+__Click on:__ vm-31 (OracleCentos)    
+
+__Get the config of the chosen vm__  
+__Search for:__ config	VirtualMachineConfigInfo	config  
+__Click on:__ config  
+
+__Search for:__ instanceUuid   
+here you will find a __string__	with the __uuid__ "501123d1-0cba-d9af-bb3f-5f5937023d0c"  
