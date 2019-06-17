@@ -60,19 +60,19 @@ ProvisionedSpaceGB : 44.1
 Folder             : vm
  ```
 '''
-Select-Object-Property @{N="vCenter";E={$vCenterServer.Name}},
-        @{N="VMHost";E={$VMHostTable["$($_.Runtime.Host.Value)"]}},
-        @{N="VM";E={$_.Name}},
-        @{N='VM IP Adrressess';E={$_.guest.IPAddress -join'|'}},
-        @{N="Guest OS";E={$_.Guest.GuestFullName}},
-        @{N="Notes";E={$_.Config.Annotation}},
-        @{N="Datastores";E={
-            $DatastoreNames=foreach ($Datastorein ($_.Datastore))
-              {$DatastoreTable["$($Datastore.Value)"]}         
-            [string]::Join(',',($DatastoreNames))
-          }
-        },
-        @{N="VMware Tools version";E={$_.Config.Tools.ToolsVersion}}
+Select-Object-Property @{N="vCenter";E={$vCenterServer.Name}},  
+        @{N="VMHost";E={$VMHostTable["$($_.Runtime.Host.Value)"]}},  
+        @{N="VM";E={$_.Name}},  
+        @{N='VM IP Adrressess';E={$_.guest.IPAddress -join'|'}},  
+        @{N="Guest OS";E={$_.Guest.GuestFullName}},  
+        @{N="Notes";E={$_.Config.Annotation}},  
+        @{N="Datastores";E={  
+            $DatastoreNames=foreach ($Datastorein ($_.Datastore))  
+              {$DatastoreTable["$($Datastore.Value)"]}           
+            [string]::Join(',',($DatastoreNames))  
+          }  
+        },  
+        @{N="VMware Tools version";E={$_.Config.Tools.ToolsVersion}}  
  '''
 # Get the UUID from individual VMs  
 ```  
