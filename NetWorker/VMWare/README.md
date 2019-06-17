@@ -35,10 +35,10 @@ Get-VM |
 @{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
 @{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
 @{N = "Folder"; E = {$_.Folder.Name}}
-@{N = "UUID"; E = {$_.config.uuid}} 
-|
-  Sort-Object -Property Folder
+@{N = "UUID"; E = {$_.ExtensionData.hardware.systeminfo.uuid}} |  
+Sort-Object -Property Folder
 ```
+
 ```
 Name               : search_18.2.0.2410  
 GuestOS            : SUSE Linux Enterprise 12 (64-bit)  
