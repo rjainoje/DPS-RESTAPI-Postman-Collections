@@ -3,6 +3,7 @@
 # PowerShell with vCenter communcation  
 PowerShell is your friend when you need some Information from vCenter like UUID  
 https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
+[Mastering PowerCLI](https://searchvmware.techtarget.com/Mastering-PowerCLI-Using-Get-VM-to-work-with-virtual-machines)
 
 # Connect to the vcenter Server with your Windows PowerShell:  
 Connect-VIServer -Server vcenter01 -User admin -Password pass  
