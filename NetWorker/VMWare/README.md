@@ -44,7 +44,7 @@ Get-VM |
 @{N = "Datastore"; E = {[string]::Join(',', (Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
 @{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
 @{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
-@{N = "Folder"; E = {$_.Folder.Name}
+@{N = "Folder"; E = {$_.Folder.Name}}
 @{N = "UUID"; E = {$_.config.instanceUuid}} | Sort-Object -Property Datastore
  ```
 
