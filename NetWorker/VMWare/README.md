@@ -1,6 +1,6 @@
 # Tips and tricks you need for NetWorker ReST api
 
-# PowerShell with vCenter communcation  
+# PowerShell with vCenter communication  
 PowerShell is your friend when you need some Information from vCenter like UUID  
 https://vwiki.co.uk/Virtual_Machine_PowerCLI_One-Liners
 [Mastering PowerCLI](https://searchvmware.techtarget.com/Mastering-PowerCLI-Using-Get-VM-to-work-with-virtual-machines)
@@ -35,7 +35,7 @@ Get-VM |
 @{N = "Datastore"; E = {[string]::Join(',', (Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
 @{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
 @{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
-@{N = "Folder"; E = {$_.Folder.Name}}
+@{N = "Folder"; E = {$_.Folder.Name}},
 @{N = "UUID"; E = {$_.Persistentid}} |  
   Sort-Object -Property Datastore
 ```
