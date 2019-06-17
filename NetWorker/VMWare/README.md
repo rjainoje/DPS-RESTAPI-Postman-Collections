@@ -13,7 +13,7 @@ Connect-VIServer -Server vcenter01 -User admin -Password pass
 
 # Which VMs do you have    
 ```
-PS C:\> get—VM
+PS C:\> Get—VM
 
 Name                   PowerState   Num CPUs MemoryGB  
 search_18.2.0.2410     PoweredOn       8       32.000  
@@ -37,6 +37,17 @@ Get-VM |
 @{N = "Folder"; E = {$_.Folder.Name}} |
   Sort-Object -Property Folder
 ```
+```
+Get-VM |
+  Select Name,
+@{N = 'GuestOS'; E = {$_.ExtensionData.Guest.GuestFullName}},
+@{N = "Datastore"; E = {[string]::Join(',', (Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
+@{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
+@{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
+@{N = "Folder"; E = {$_.Folder.Name}}
+@{N = "UUID"; E = {$_.config.instanceUuid} | Sort-Object -Property Datastore
+ ```
+
 # Get the UUID from individual VMs  
 ```  
 PS C:\> Get-VM SQL-01 | %{(Get-View $_.Id).config.instanceUuid}  
