@@ -38,14 +38,26 @@ Get-VM |
   Sort-Object -Property Folder
 ```
 ```
-Get-VM |
-  Select Name,
-@{N = 'GuestOS'; E = {$_.ExtensionData.Guest.GuestFullName}},
-@{N = "Datastore"; E = {[string]::Join(',', (Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))}},
-@{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
-@{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
-@{N = "Folder"; E = {$_.Folder.Name}}
-@{N = "UUID"; E = {$_.config.instanceUuid}} | Sort-Object -Property Datastore
+Name               : search_18.2.0.2410  
+GuestOS            : SUSE Linux Enterprise 12 (64-bit)  
+Datastore          : Datastore  
+UsedSpaceGB        : 212.1  
+ProvisionedSpaceGB : 212.1
+Folder             : vm
+
+Name               : NW-vproxy-installer-3.0.0-4
+GuestOS            : SUSE Linux Enterprise 12 (64-bit)
+Datastore          : LocalDS100Gb
+UsedSpaceGB        : 13.1
+ProvisionedSpaceGB : 164.4
+Folder             : vm
+
+Name               : SQL-01
+GuestOS            : Microsoft Windows Server 2016 (64-bit)
+Datastore          : Datastore2
+UsedSpaceGB        : 44.1
+ProvisionedSpaceGB : 44.1
+Folder             : vm
  ```
 
 # Get the UUID from individual VMs  
