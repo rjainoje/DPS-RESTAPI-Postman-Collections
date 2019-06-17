@@ -35,11 +35,10 @@ Get-VM |
 @{N = "UsedSpaceGB"; E = {[math]::Round($_.UsedSpaceGB, 1)}},
 @{N = "ProvisionedSpaceGB"; E = {[math]::Round($_.ProvisionedSpaceGB, 1)}},
 @{N = "Folder"; E = {$_.Folder.Name}}
-@{N = "UUID"; E = {[string]::Join(',', (Get-View $_.Id).config.uuid | Select -ExpandProperty Name))}} |  
-Sort-Object -Property Folder
+@{N = "UUID"; E = {$_.Persistentid}} |  
+  Sort-Object -Property Datastore
 ```
-{[string]::Join(',', (Get-View $_.Id).config.uuid | Select -ExpandProperty Name))}}
-%{(Get-View $_.Id).config.uuid}  
+Get-VM test1 | Format-List *
 
 ```
 Name               : search_18.2.0.2410  
