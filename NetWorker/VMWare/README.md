@@ -42,12 +42,13 @@ Get-VM |
 Get-VM test1 | Format-List *
 
 ```
-Name               : search_18.2.0.2410  
-GuestOS            : SUSE Linux Enterprise 12 (64-bit)  
-Datastore          : Datastore  
-UsedSpaceGB        : 212.1  
-ProvisionedSpaceGB : 212.1
+Name               : SQL-01
+GuestOS            : Microsoft Windows Server 2016 (64-bit)
+Datastore          : Datastore2
+UsedSpaceGB        : 44.1
+ProvisionedSpaceGB : 44.1
 Folder             : vm
+UUID               : 5011cf93-a6d3-1bfb-1bc6-5c6f8b8299a8
 
 Name               : NW-vproxy-installer-3.0.0-4
 GuestOS            : SUSE Linux Enterprise 12 (64-bit)
@@ -55,13 +56,15 @@ Datastore          : LocalDS100Gb
 UsedSpaceGB        : 13.1
 ProvisionedSpaceGB : 164.4
 Folder             : vm
+UUID               : 501155ff-f70e-8ee6-b0ea-9f70f7680af6
 
-Name               : SQL-01
-GuestOS            : Microsoft Windows Server 2016 (64-bit)
-Datastore          : Datastore2
-UsedSpaceGB        : 44.1
-ProvisionedSpaceGB : 44.1
+Name               : OracleCentos
+GuestOS            :
+Datastore          : LocalDS100Gb
+UsedSpaceGB        : 44.0
+ProvisionedSpaceGB : 44.0
 Folder             : vm
+UUID               : 501123d1-0cba-d9af-bb3f-5f5937023d0c
  ```
 
 # Get the UUID from individual VMs  
