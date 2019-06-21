@@ -21,8 +21,8 @@ In this Postman collections I do work with an environment (postman_environment.j
 
 # swagger file
 When having a swagger api file like one from NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what api calls are available to use. Use NetWorker administrator and password for login.
-NetWorker always uses this swagger file: https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json.
-If you are not in the internet with your NetWorker Server you can easy download the swagger file by  
+NetWorker always uses this swagger file: https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json.  
+If you are not online with your NetWorker Server you can easy download the swagger file with:  
 ```
 java -jar swagger-codegen-cli-2.4.5.jar generate -i ./swagger.json -l python -o REST_API
 ```
