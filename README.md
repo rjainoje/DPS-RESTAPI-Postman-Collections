@@ -32,5 +32,11 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
     * Authenticate against an ave host  
 * DataDomain
   * DataDomain
+    * DDOS 6.2
+        * environment variables
+        * ReSt api automation collection
   * DataDomain Management Center
-* ECDM
+* PowerProtect
+    * PowerProtect 19.1
+      * environment variables
+      * ReSt api automation collection
