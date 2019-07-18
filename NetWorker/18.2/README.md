@@ -19,7 +19,8 @@ In this Postman collections I do work with an environment (postman_environment.j
         * start a policy  
         * get a job information with logs  
       * Demo workflow for VMWare  
-
+      * First Steps mit Postman and NetWorker
+        * REST API NetWorker 18.2.pptx 
       # swagger file
       When having a swagger api file like one from NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what api calls are available to use. Use NetWorker administrator and password for login.
       NetWorker always uses this swagger file: https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json.   
