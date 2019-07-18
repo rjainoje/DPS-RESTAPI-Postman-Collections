@@ -17,6 +17,17 @@ In this Postman collections I do work with an environment (postman_environment.j
       * start a policy  
       * get a job information with logs  
     * Demo workflow for VMWare
+    * Use Case automation
+        * ServiceNow add VM Client
+            * Get list of current protected VMs
+            * Get list of unprotected VMs
+            * decide which VM to backup
+            * Get client into Backup mode (easy for VMWare backup)
+            * Check for Backup Proxy for this client
+            * See what Backup Policy this client should belong to
+            * Add Client to right policy
+            * Execute the first backup
+            * Return the Backup Job ID for this
 
 
 # swagger file
