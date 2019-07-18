@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "0971eb02-5d4a-4782-a87e-3a9747cf82ac",
+		"name": "Avamar 19.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Create a oauth2 Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "1ed68166-fce0-4dd4-8208-e4704eb58744"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"accessTokenValiditySeconds\": 1800,\n   \"authorizedGrantTypes\": [\n   \"password\"\n   ],\n   \"autoApproveScopes\": [\n   \"all\"\n   ],\n   \"clientId\": \"9999ef0689da340dbf67396a93be063352b2727e\",\n   \"clientName\": \"oauth2-client\",\n   \"clientSecret\": \"Password123!\",\n   \"redirectUris\": [\n   \"https://ave-01.demo.local/callback\"\n   ],\n   \"refreshTokenValiditySeconds\": 43200,\n   \"scopes\": [\n   \"read\", \"write\"\n   ]\n   }"
+						},
+						"url": {
+							"raw": "https://{{ave}}/api/v1/oauth2/clients",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"oauth2",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with oauth/token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "write",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "MCUser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password_123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https:///{{ave}}/api/oauth/token",
+							"host": [
+								"https:"
+							],
+							"port": "",
+							"path": [
+								"",
+								"",
+								"{{ave}}",
+								"api",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create a oath2 client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "1ed68166-fce0-4dd4-8208-e4704eb58744"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"accessTokenValiditySeconds\": 1800,\n   \"authorizedGrantTypes\": [\n   \"password\"\n   ],\n   \"autoApproveScopes\": [\n   \"all\"\n   ],\n   \"clientId\": \"9999ef0689da340dbf67396a93be063352b2727e\",\n   \"clientName\": \"oauth2-client\",\n   \"clientSecret\": \"Password123!\",\n   \"redirectUris\": [\n   \"https://ave-01.demo.local/callback\"\n   ],\n   \"refreshTokenValiditySeconds\": 43200,\n   \"scopes\": [\n   \"read\", \"write\"\n   ]\n   }"
+						},
+						"url": {
+							"raw": "https://{{ave}}/api/v1/oauth2/clients",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"oauth2",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App Dir Controller",
+			"item": [
+				{
+					"name": "Get all Domains",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUk9PVCIsInVzZXJfbmFtZSI6Ik1DVXNlciIsInNjb3BlIjpbIndyaXRlIl0sImRvbWFpbiI6Ii8iLCJhdXRob3JpemVkX2RvbWFpbiI6Ii8iLCJleHAiOjE1NTExOTQ4NTAsImF1dGhvcml0aWVzIjpbIlJPT1QiXSwianRpIjoiY2U0YzQxZjctMDcyNi00NjNjLTg0YTEtMDJhNzhmYjUxNzYxIiwiY2xpZW50X2lkIjoiNzcxYzgyMWQtOGVlOS00ZjZjLTkyOGQtYjJlM2QxZDNiNjQzIn0.Yk_jkBxlPL_Hr7elzvXvUeq4yhxzQgDB7V4-QkXsOdjJtJ3zgec3RGny0zhsbSQy1KWPR0PJqCRWUL_QARcMG4Sv9xQIVzGTGajvMBbZ7IsqBLcB2G-jMLc4G5MiQxGApBh_eoMuqnDDNih2l9VBgYBOLlxKxvEYBX-7GRJlsndfq4rXiqXHpp5lIDjjkfVS1bDXQ8mQiNmSu2CD4ttKMcznmG4bU-PSXjOH7O-oHov38KCB30IYXNG-EKZuWV3dJ03Z2hzSI1swcirT45fqS3cAVaeyGxMFJVbkRP_QyzA5yqlXkc69kEZGFkDl9qmYsGP-2XZ9QUU9bb6oag9Z7btIocqIPFf-hduVfY8WKiQWzJWeL2uIy983YHN-j_d7rydmLOHBJNJBgdU7HrJQcX4nnJ-ac9wM30LvFSI5jCH94BX8bnyeTyqP28pV5aDlsqLuJdxP_lU_Y0Dlec0OqzLpzT8rhACxPBaHGApqxg5zDR8U-D6BRXrqiAswY4pP"
+							}
+						],
+						"url": {
+							"raw": "https://{{ave}}/api/v1/domains?domain=%2F&recursive=false",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"domains"
+							],
+							"query": [
+								{
+									"key": "domain",
+									"value": "%2F"
+								},
+								{
+									"key": "recursive",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create NEW domain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUk9PVCIsInVzZXJfbmFtZSI6Ik1DVXNlciIsInNjb3BlIjpbIndyaXRlIl0sImRvbWFpbiI6Ii8iLCJhdXRob3JpemVkX2RvbWFpbiI6Ii8iLCJleHAiOjE1NTExOTQ4NTAsImF1dGhvcml0aWVzIjpbIlJPT1QiXSwianRpIjoiY2U0YzQxZjctMDcyNi00NjNjLTg0YTEtMDJhNzhmYjUxNzYxIiwiY2xpZW50X2lkIjoiNzcxYzgyMWQtOGVlOS00ZjZjLTkyOGQtYjJlM2QxZDNiNjQzIn0.Yk_jkBxlPL_Hr7elzvXvUeq4yhxzQgDB7V4-QkXsOdjJtJ3zgec3RGny0zhsbSQy1KWPR0PJqCRWUL_QARcMG4Sv9xQIVzGTGajvMBbZ7IsqBLcB2G-jMLc4G5MiQxGApBh_eoMuqnDDNih2l9VBgYBOLlxKxvEYBX-7GRJlsndfq4rXiqXHpp5lIDjjkfVS1bDXQ8mQiNmSu2CD4ttKMcznmG4bU-PSXjOH7O-oHov38KCB30IYXNG-EKZuWV3dJ03Z2hzSI1swcirT45fqS3cAVaeyGxMFJVbkRP_QyzA5yqlXkc69kEZGFkDl9qmYsGP-2XZ9QUU9bb6oag9Z7btIocqIPFf-hduVfY8WKiQWzJWeL2uIy983YHN-j_d7rydmLOHBJNJBgdU7HrJQcX4nnJ-ac9wM30LvFSI5jCH94BX8bnyeTyqP28pV5aDlsqLuJdxP_lU_Y0Dlec0OqzLpzT8rhACxPBaHGApqxg5zDR8U-D6BRXrqiAswY4pP"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"contact\": { \"email\": \"admin@emc.com\", \"location\": \"176 South Street Hopkinton\", \"name\": \"admin\", \"notes\": \"Dell EMC\", \"phone\": \"1-866-438-3622\" }, \"name\": \"clients\", \"parentDomain\": \"/\"}"
+						},
+						"url": {
+							"raw": "https://{{ave}}/api/v1/domains",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"domains"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get domain from special ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUk9PVCIsInVzZXJfbmFtZSI6Ik1DVXNlciIsInNjb3BlIjpbIndyaXRlIl0sImRvbWFpbiI6Ii8iLCJhdXRob3JpemVkX2RvbWFpbiI6Ii8iLCJleHAiOjE1NTExOTQ4NTAsImF1dGhvcml0aWVzIjpbIlJPT1QiXSwianRpIjoiY2U0YzQxZjctMDcyNi00NjNjLTg0YTEtMDJhNzhmYjUxNzYxIiwiY2xpZW50X2lkIjoiNzcxYzgyMWQtOGVlOS00ZjZjLTkyOGQtYjJlM2QxZDNiNjQzIn0.Yk_jkBxlPL_Hr7elzvXvUeq4yhxzQgDB7V4-QkXsOdjJtJ3zgec3RGny0zhsbSQy1KWPR0PJqCRWUL_QARcMG4Sv9xQIVzGTGajvMBbZ7IsqBLcB2G-jMLc4G5MiQxGApBh_eoMuqnDDNih2l9VBgYBOLlxKxvEYBX-7GRJlsndfq4rXiqXHpp5lIDjjkfVS1bDXQ8mQiNmSu2CD4ttKMcznmG4bU-PSXjOH7O-oHov38KCB30IYXNG-EKZuWV3dJ03Z2hzSI1swcirT45fqS3cAVaeyGxMFJVbkRP_QyzA5yqlXkc69kEZGFkDl9qmYsGP-2XZ9QUU9bb6oag9Z7btIocqIPFf-hduVfY8WKiQWzJWeL2uIy983YHN-j_d7rydmLOHBJNJBgdU7HrJQcX4nnJ-ac9wM30LvFSI5jCH94BX8bnyeTyqP28pV5aDlsqLuJdxP_lU_Y0Dlec0OqzLpzT8rhACxPBaHGApqxg5zDR8U-D6BRXrqiAswY4pP"
+							}
+						],
+						"url": {
+							"raw": "https://{{ave}}/api/v1/domains/b2d93db6b9048c2eac77a66657dc0a1da9297d98?fields=name",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"domains",
+								"b2d93db6b9048c2eac77a66657dc0a1da9297d98"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a473b17a-84e3-48fd-b50c-bf4671ddbcf6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "080eb96a-fee9-4ddc-a647-2f2d83b8e4af",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Vabm Controller",
+			"item": [
+				{
+					"name": "Download VABM Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ave}}/api//v1/vabm/logs",
+							"protocol": "https",
+							"host": [
+								"{{ave}}"
+							],
+							"path": [
+								"api",
+								"",
+								"v1",
+								"vabm",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VC Extension Controller",
+			"item": []
+		},
+		{
+			"name": "Virtual Center Controller",
+			"item": []
+		},
+		{
+			"name": "version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ave}}/api/v1/system/basic-info",
+					"protocol": "https",
+					"host": [
+						"{{ave}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"system",
+						"basic-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ave}}/api/v1/activities?domain=%2F&duration=0&recursive=true\n",
+					"protocol": "https",
+					"host": [
+						"{{ave}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "domain",
+							"value": "%2F"
+						},
+						{
+							"key": "duration",
+							"value": "0"
+						},
+						{
+							"key": "recursive",
+							"value": "true\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ave1  clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{ave}}/api/v1/clients?domain=%2F&recursive=true",
+					"protocol": "https",
+					"host": [
+						"{{ave}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clients"
+					],
+					"query": [
+						{
+							"key": "domain",
+							"value": "%2F"
+						},
+						{
+							"key": "recursive",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "swagger ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ave}}/api/swagger-ui.html",
+					"protocol": "https",
+					"host": [
+						"{{ave}}"
+					],
+					"path": [
+						"api",
+						"swagger-ui.html"
+					]
+				},
+				"description": "https://ave1.vlab.local/api/swagger-ui.html#/client-controller"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUk9PVCIsInVzZXJfbmFtZSI6Ik1DVXNlciIsInNjb3BlIjpbImFsbCJdLCJkb21haW4iOiIvIiwiYXV0aG9yaXplZF9kb21haW4iOiIvIiwiZXhwIjoxNTUxMjE5ODQ2LCJhdXRob3JpdGllcyI6WyJST09UIl0sImp0aSI6IjNlMDBmOTE1LTM4ODctNDdmZC1iNjVhLWQ2NDhmZWE0M2ZjMSIsImNsaWVudF9pZCI6ImF1aV9jbGllbnRfaWQifQ.iflzZwcjbgErDpLLelO5-528Aes1dZ_lWhqQTVgz-aoJfl4WkUTH85cToWlwUK7rbXcwI9rnMEOYvVgEfd2FWvOF4w4ONiKlvfNq3xh6oqam7pq4CPoAvjUuQa2tKIDVsmGrhoW_l95W0TuE0_fDv7UGNchXum3IPCRRIUPRsrRI5lJgEwavQ7QEUH_4DFj9mv1z09IpYK_GOI1H1w-VKq93AWnLLTgCwtpde2uVtQ2bNchkPWp6N6IpQ4wZ6OjW62SOfGVRS7E7VKGFCbX-xZVk_t_WrxxXby4MMR6UzJfa1L8FbMpxmq7Ph9PbpwnLyzs4YOTC3Z9OeGy-vji8AJGNjwm-PKPqHXHfvmRCEeeQHJM6EfNUtpgJkDyNF4wHx1lzbW4d9R-hU-Il2xRU58X9oxh4g7nv2qif4UlzEHqCD_oX77Mm8Q5m5aAGGAqshadPliEx9koefvUprZ7bBYl714J9JYqDUCsOXOYj9thXKX2nTOmwyI-vcwYZiYwI",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bd5ec51c-b3d4-4b16-9e4c-42b16c0522a7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f6e13a8f-7e5b-4c3b-b1bc-c691bbc41410",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "192b6575-5b66-4de6-afee-63cc40ddb030",
+			"key": "hostname",
+			"value": "10.62.229.28",
+			"type": "string"
+		},
+		{
+			"id": "d78a7190-b0dc-48e4-b496-01d795c3b89b",
+			"key": "username",
+			"value": "root",
+			"type": "string"
+		},
+		{
+			"id": "93eb4dfb-9842-42d2-9885-44570fd20ff5",
+			"key": "password",
+			"value": "Chang3M3Now.",
+			"type": "string"
+		}
+	]
+}

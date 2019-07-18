@@ -1,0 +1,5356 @@
+{
+	"info": {
+		"_postman_id": "c070d2af-0940-40c9-a559-98c64c21d03a",
+		"name": "DataDomain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Authorization",
+			"item": [
+				{
+					"name": "Login user/Password - return X-DD-AUTH-TOKEN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"sysadmin\", \"password\":\"Password123!\"}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/auth",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"auth"
+							]
+						},
+						"description": "PLease take the X-DD-AUTH-TOKEN value you do find in the HEADERs response and add this to the COLLECTION variable X-DD-AUTH-TOKEN as this will used everywhere here for aurhorization"
+					},
+					"response": []
+				},
+				{
+					"name": "logout request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/auth",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Information API swagger",
+			"item": [
+				{
+					"name": "swagger file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{DD}}/api/doc/web_api.json",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"path": [
+								"api",
+								"doc",
+								"web_api.json"
+							]
+						},
+						"description": "*https://ddve-1.vlab.local/api/rest_test.html*"
+					},
+					"response": []
+				},
+				{
+					"name": "Doucmentation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{DD}}/api/doc/",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"path": [
+								"api",
+								"doc",
+								""
+							]
+						},
+						"description": "*https://ddve-1.vlab.local/api/rest_test.html*"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https:/{{DD}}/api/doc/",
+							"host": [
+								"https:"
+							],
+							"port": "",
+							"path": [
+								"{{DD}}",
+								"api",
+								"doc",
+								""
+							]
+						},
+						"description": "https://{{server}}/api/rest_test.html"
+					},
+					"response": []
+				},
+				{
+					"name": "DD System overview",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/system?",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"system"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "serialno=]AUDVYNLCXPSDX",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Information of you DD",
+			"item": [
+				{
+					"name": "System Information",
+					"item": [
+						{
+							"name": "DD System Info for ID 0",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 Settings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/settings",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 snapshots",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/snapshots",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"snapshots"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 networks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/networks",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"networks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 alerts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 smt",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"smt"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 services",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 protocols",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 cloud-units",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/cloud-units",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"cloud-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 data-movement-policies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"data-movement-policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 mtrees",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/licenses",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"licenses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 stats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"stats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 compression",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/        }",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"        }"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 licenses / locking-ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/licenses",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"licenses"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Settings",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 Settings mail_server Time zone",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/settings",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"settings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "snapshots",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 snapshots",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/snapshots",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"snapshots"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0  ONE special snapshots",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/snapshots/%2Fdata%2Fcol1%2Favamar-1527768929%3Acp.20190607080035",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"snapshots",
+										"%2Fdata%2Fcol1%2Favamar-1527768929%3Acp.20190607080035"
+									]
+								},
+								"description": "https://www.epochconverter.com/"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "networks",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 networks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/networks",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"networks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 networks ethV0",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/networks/ethV0",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"networks",
+										"ethV0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 networks ethV1",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/networks/ethV1",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"networks",
+										"ethV1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 users sysadmin",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users/sysadmin",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"users",
+										"sysadmin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "alerts",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 alerts ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/alerts",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"alerts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 alerts/notify-lists",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 /alerts/notify-lists/default",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/alerts/notify-lists/default",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"alerts",
+										"notify-lists",
+										"default"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "smt",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 smt",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/smt",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"smt"
+									]
+								},
+								"description": "enable SMT on the DD Commandline  \nsmt enable  \ncreate a tenent unit   \nsmt tenant-unit create jschubert"
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 smt tenant-units",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/smt/tenant-units",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"smt",
+										"tenant-units"
+									]
+								},
+								"description": "enable SMT \n\nEvernote: Create Secure Multi tenants SMT"
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 smt tenants",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/smt/tenants",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"smt",
+										"tenants"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "services",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 services",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/services",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 services ntp",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/services/ntp",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"services",
+										"ntp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 services snmp",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/services/snmp",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"services",
+										"snmp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 services license-server",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/services/license-server",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"services",
+										"license-server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 licenses",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/licenses",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"licenses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DD System Info for ID 0 services iscsi",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/services/iscsi",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"services",
+										"iscsi"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Protocols",
+					"item": [
+						{
+							"name": "ddboost",
+							"item": [
+								{
+									"name": "protocols/ddboost",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/ddboost",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"ddboost"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/protocols/ddboost/users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/ddboost/users",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"ddboost",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols/ddboost/storage-units",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/ddboost/storage-units",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"ddboost",
+												"storage-units"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols/ddboost/file-replication",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/ddboost/file-replication",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"ddboost",
+												"file-replication"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols/ddboost/file-replication/stats",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/ddboost/file-replication/stats",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"ddboost",
+												"file-replication",
+												"stats"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "vdisk",
+							"item": [
+								{
+									"name": "protocols vdisk",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/vdisk",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"vdisk"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols vdisk static-images",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/vdisk/static-images",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"vdisk",
+												"static-images"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols vdisk devices",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/vdisk/devices",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"vdisk",
+												"devices"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols vdisk device-groups",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/vdisk/device-groups",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"vdisk",
+												"device-groups"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols vdisk pools",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/vdisk/pools",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"vdisk",
+												"pools"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "nfs",
+							"item": [
+								{
+									"name": "protocols nfs",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/nfs",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"nfs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols nfs exports",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"type": "text",
+												"value": "{{X-DD-AUTH-TOKEN}}"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/nfs/exports",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"nfs",
+												"exports"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Cifs Share",
+							"item": [
+								{
+									"name": "protocols/cifs",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/cifs",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"cifs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols/cifs Shares",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/cifs/shares",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"cifs",
+												"shares"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "protocols/cifs Shares special Share",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-DD-AUTH-TOKEN",
+												"value": "{{X-DD-AUTH-TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/cifs/shares/cr",
+											"protocol": "https",
+											"host": [
+												"{{DD}}"
+											],
+											"port": "3009",
+											"path": [
+												"rest",
+												"v1.0",
+												"dd-systems",
+												"0",
+												"protocols",
+												"cifs",
+												"shares",
+												"cr"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "protocols",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"protocols"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "cloud-unit",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "data-movement-policy",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "mtree",
+					"item": [
+						{
+							"name": "get mtrees",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"mtrees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get mtrees FIlter for special",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees/%2Fdata%2Fcol1%2Favamar-1546888816",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Favamar-1546888816"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get mtrees FIlter for special mtree rtlfiles",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees/%2Fdata%2Fcol1%2Favamar-1546888816/rlfiles",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Favamar-1546888816",
+										"rlfiles"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "stats",
+					"item": [
+						{
+							"name": "/stats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/stats",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"stats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "stats/compression",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/stats/compression",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"stats",
+										"compression"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "stats/compression/measurements",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/stats/compression/measurements",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"stats",
+										"compression",
+										"measurements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "compression/measurements",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"stats",
+										"compression",
+										"measurements"
+									]
+								},
+								"description": "*https://ddve-1.vlab.local/api/rest_test.html*"
+							},
+							"response": []
+						},
+						{
+							"name": "/stats/compression/measurements-support-check",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/stats/compression/measurements-support-check",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"stats",
+										"compression",
+										"measurements-support-check"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "stats/Capacity",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/xml"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "ddc7a31494d8e69ce586e3ed427b47fbc"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v2.0/dd-systems/0/stats/capacity",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v2.0",
+										"dd-systems",
+										"0",
+										"stats",
+										"capacity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show status of services",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0​/services?",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0​",
+										"services"
+									],
+									"query": [
+										{
+											"key": "X-DD-AUTH-TOKE",
+											"value": "{{X-DD-AUTH-TOKEN}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "licensing",
+					"item": [
+						{
+							"name": "DD System Info for ID 0 licenses / locking-ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/licenses",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"licenses"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "DataDomain Rest API Documentation",
+			"item": [
+				{
+					"name": "Alerts Notifylists",
+					"item": [
+						{
+							"name": "Show list of alerts notification lists",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show details of an alert notification list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/default",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists",
+										"default"
+									]
+								},
+								"description": "https://{{DD}}:3009/rest/v1 .0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID}"
+							},
+							"response": []
+						},
+						{
+							"name": "Modify an alert notification list   Existing information will be replaced by new input",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n        \"class_severity_pairs\": [\n            {\n                \"class\": \"cifs\",\n                \"severity\": \"debug\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/default",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists",
+										"default"
+									]
+								},
+								"description": "https://{{DD}}:3009/rest/v1 .0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID}"
+							},
+							"response": []
+						},
+						{
+							"name": "Modify an alert notification list   Existing information will be replaced by new input Copy",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json  "
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n        \"class_severity_pairs\": [\n           {\n                \"class\": \"cifs\",\n                \"severity\": \"warning\"\n            },\n            {\n                \"class\": \"environment\",\n                \"severity\": \"warning\"\n            },\n            {\n                \"class\": \"firmware\",\n                \"severity\": \"warning\"\n            },\n            {\n                \"class\": \"systemmaintenance\",\n                \"severity\": \"warning\"\n            },\n            {\n                \"class\": \"replication\",\n                \"severity\": \"warning\"\n            },\n            {\n                \"class\": \"storage\",\n                \"severity\": \"warning\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/default",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists",
+										"default"
+									]
+								},
+								"description": "https://{{DD}}:3009/rest/v1 .0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID}"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Alerts Notifylists  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Delete all user-configured alert notification lists  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Show list of alerts notification lists  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Create an alert notification list  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Delete an alert notification list  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Show details of an alert notification list  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Modify an alert notification list   Existing information will be replaced by new input  ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8497618-00c1-4c6f-9f1f-67921a1877ef",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e5585eb-e282-4a0f-8ed4-2e777ca5bb11",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login user/Password - return X-DD-AUTH-TOKEN",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"username\":\"sysadmin\", \"password\":\"Password123!\"}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/auth",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"auth"
+									]
+								},
+								"description": "PLease take the X-DD-AUTH-TOKEN value you do find in the HEADERs response and add this to the COLLECTION variable X-DD-AUTH-TOKEN as this will used everywhere here for aurhorization"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Auth  \r\nDELETE /rest/v1.0/auth Delete authentication token    \r\nPOST /rest/v1.0/auth Create authentication token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "52ee9ed8-5ea3-4a77-9d66-4d11b062a042",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c531811-9e2a-42c4-9150-4895217ff2d4",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Cifs Shares",
+					"item": [
+						{
+							"name": "protocols/cifs",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/cifs",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"protocols",
+										"cifs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get CIFS share information",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"cifs",
+										"shares"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a CIFS share",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \r\n  \"name\": \"newshare\",  \r\n  \"path\": \"/data/col1/backup\",  \r\n  \"max_connections\": 1,  \r\n  \"comment\": \"Kommentar\",  \r\n  \"clients\": [  \r\n    \"*\"  \r\n  ]  \r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"cifs",
+										"shares"
+									]
+								},
+								"description": "{  \r\n  \"name\": \"string\",  \r\n  \"path\": \"string\",  \r\n  \"max_connections\": 0,  \r\n  \"comment\": \"string\",  \r\n  \"clients\": [  \r\n    \"string\"  \r\n  ],\r\n  \"users\": [  \r\n    \"string\"  \r\n  ],  \r\n  \"groups\": [  \r\n    \"string\"  \r\n  ]  \r\n}\r\n/data/col1/backup"
+							},
+							"response": []
+						},
+						{
+							"name": "update a CIFS share - max Connections",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \r\n  \"max_connections\": 0,  \r\n  \"comment\": \"Comments from update PUT\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/newshare",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"cifs",
+										"shares",
+										"newshare"
+									]
+								},
+								"description": "{  \r\n  \"name\": \"string\",  \r\n  \"path\": \"string\",  \r\n  \"max_connections\": 0,  \r\n  \"comment\": \"string\",  \r\n  \"clients\": [  \r\n    \"string\"  \r\n  ],\r\n  \"users\": [  \r\n    \"string\"  \r\n  ],  \r\n  \"groups\": [  \r\n    \"string\"  \r\n  ]  \r\n}\r\n/data/col1/backup"
+							},
+							"response": []
+						},
+						{
+							"name": "deletea CIFS share",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/newshare",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"cifs",
+										"shares",
+										"newshare"
+									]
+								},
+								"description": "{  \r\n  \"name\": \"string\",  \r\n  \"path\": \"string\",  \r\n  \"max_connections\": 0,  \r\n  \"comment\": \"string\",  \r\n  \"clients\": [  \r\n    \"string\"  \r\n  ],\r\n  \"users\": [  \r\n    \"string\"  \r\n  ],  \r\n  \"groups\": [  \r\n    \"string\"  \r\n  ]  \r\n}\r\n/data/col1/backup"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Cifs Shares  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares Get CIFS share information    \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares Create a CIFS share   \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Delete a CIFS share    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Get a CIFS share    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Modify a CIFS share  ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "81399a61-589c-4be7-bad6-47992c0a9b9c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1fa499f-58ee-4128-8c6e-53d273a02100",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Cloud Unit",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Cloud Unit  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/cloud-units Get List of Cloud Units    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/cloud-units/{ID} Get Cloud Unit Details ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "288cb897-69d2-4783-a3b3-b55111160e37",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a424fd62-033f-4c9a-a41f-3a9fde08b88f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Comp Measurements",
+					"item": [
+						{
+							"name": "Check Comp Messurement support",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems//{{SYSTEM-ID}}/stats/compression/measurements-support-check",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"",
+										"{{SYSTEM-ID}}",
+										"stats",
+										"compression",
+										"measurements-support-check"
+									]
+								},
+								"description": "If you do get a false back you need to enable Physical Capacity Measurement within the DD GUI  \n\notherwise enable on the DD CLI\ncompression physical-capacity-measurement enable [andinitialize]"
+							},
+							"response": []
+						},
+						{
+							"name": "View existing /measurements",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems//{{SYSTEM-ID}}/stats/compression/measurements",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"",
+										"{{SYSTEM-ID}}",
+										"stats",
+										"compression",
+										"measurements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create measurement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems//{{SYSTEM-ID}}/stats/compression/measurements",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"",
+										"{{SYSTEM-ID}}",
+										"stats",
+										"compression",
+										"measurements"
+									]
+								},
+								"description": "Body Infomration\n\n{  \n  \"description\": \"string\",  \n  \"exclude_dir_with_filename\": \"string\",  \n  \"file_begin_mtime_epoch\": 0,  \n  \"file_end_mtime_epoch\": 0,  \n  \"min_file_size_bytes\": 0,  \n  \"max_run_time_secs\": 0,  \n  \"include_paths\": [\n    {\n      \"path\": \"string\",  \n      \"recursive\": true  \n    }  \n  ],  \n  \"exclude_paths\": [  \n    \"string\"  \n  ],\n  \"exclude_file_with_extensions\": [  \n    \"string\"  \n  ]  \n}"
+							},
+							"response": []
+						},
+						{
+							"name": "Start multiple compression measurements",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"measurements\": {\r\n\"measurement_ids\": [\r\n\"171798691842\"\r\n]\r\n},\r\n\"options\": {\r\n\"priority\": \"normal\",\r\n\"snapshot_on_start\": true\r\n}\r\n}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems//{{SYSTEM-ID}}/stats/compression/measurements",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"",
+										"{{SYSTEM-ID}}",
+										"stats",
+										"compression",
+										"measurements"
+									]
+								},
+								"description": "Body Infomration\n\n{  \n  \"measurements\": {  \n    \"measurement_ids\": [  \n      \"string\"  \n    ]  \n  },  \n  \"options\": {  \n    \"priority\": \"normal\",  \n    \"snapshot_on_start\": true  \n  }  \n}"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Comp Measurements  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Delete multiple compression measurements  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Get the list of compression measurement information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Create a compression measurement   Note that maximum request size is 64k   Client needs to use PUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} to add more inclue/exclude paths if the total include/exclude paths causes the whole request   exceed 64k  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Start multiple compression measurements  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Delete a compression measurement, which is not completed    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Get the detailed information of a specified compression measurement  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Start this job or add more include and exclude paths to a compression measurement ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c8b8a449-8541-4132-94ad-b6a98dab403c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e6e5804-f4ee-4cb7-9dfb-e46875adf0f6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Comp Measurements Support Check ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Comp Measurements Support Check  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements-support-check Get information about measurements support on this system ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Data Movement",
+					"item": [
+						{
+							"name": "Get Data Movement mtree level information",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"data-movement",
+										"stats",
+										"mtrees"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement Data Movement information ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Data Movement Policy ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Policy     \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Get List of data movement policies    \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Create data movement policy    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Delete a data movement policy    \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Get a data movement policy    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Modify a data movement policy ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Data Movement Stats Files",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Files  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/files Get Data Movement file level information",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Data Movement Stats Mtrees",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Mtrees  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information  ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Data Movement Stats Recall",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Recall  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Ddboost ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Ddboost  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Get the DDBoost configuration    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Modify DDBoost configuration    \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Ddboost File Replication Stats ",
+					"item": [
+						{
+							"name": "DDBoost File Replication stats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/file-replication/stats",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"ddboost",
+										"file-replication",
+										"stats"
+									]
+								},
+								"description": "GET /rest/v1.0/dd-systems/{SYSTEM-ID}/protocols/ddboost/file-replication/stats "
+							},
+							"response": []
+						},
+						{
+							"name": "DDBoost File Replication stats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"ddboost",
+										"storage-units"
+									]
+								},
+								"description": "GET /rest/v1.0/dd-systems/{SYSTEM-ID}/protocols/ddboost/file-replication/stats "
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Ddboost File Replication Stats  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/file-replication/stats DDBoost File Replication stats ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Ddboost Storage Units",
+					"item": [
+						{
+							"name": "create mtrees in special smt jschubert Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"/data/col1/tenent-mtree\",\r\n   \"tenant_unit\": \"jschubert\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"mtrees"
+									]
+								},
+								"description": "boy Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a Storage Unit",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"ddboost_SU\",\r\n  \"user\": \"boost\",\r\n  \"tenant_unit\": \"jschubert\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"ddboost",
+										"storage-units"
+									]
+								},
+								"description": "{  \r\n  \"name\": \"string\",  \r\n  \"user\": \"string\",  \r\n  \"tenant_unit\": \"string\",  \r\n  \"quota_config\": {  \r\n    \"hard_limit\": 0,  \r\n    \"soft_limit\": 0  \r\n  },\r\n  \"report_physical_size\": 0,  \r\n  \"stream_limit_config\": {  \r\n    \"write_stream_soft_limit\": 0,  \r\n    \"read_stream_soft_limit\": 0,  \r\n    \"repl_stream_soft_limit\": 0,  \r\n    \"combined_stream_soft_limit\": 0,  \r\n    \"combined_stream_hard_limit\": 0  \r\n  }  \r\n}"
+							},
+							"response": []
+						}
+					],
+					"description": "DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n     \r\n**Ddboost Storage Units   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Get DDBoost storage unit information     \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Create a Storage Unit    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Delete a Storage Unit    \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Get a DDBoost storage unit    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Modify a Storage Unit ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Ddboost Users",
+					"item": [
+						{
+							"name": "Get DDBoost User Information",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"ddboost",
+										"users"
+									]
+								},
+								"description": "GET /rest/v1.0/dd-systems/{SYSTEM-ID}/protocols/ddboost/file-replication/stats "
+							},
+							"response": []
+						},
+						{
+							"name": "Get DDBoost User Information sysadmin",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users/sysadmin",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"ddboost",
+										"users",
+										"sysadmin"
+									]
+								},
+								"description": "GET /rest/v1.0/dd-systems/{SYSTEM-ID}/protocols/ddboost/file-replication/stats "
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n     \r\n**Ddboost Users   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users Get DDBoost users information    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users/{ID} Get a DDBoost user ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0bf72233-e012-4dbd-9c24-f4e86c7f2a81",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "58808b2f-39d8-4851-a12c-56ff84c05e50",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Licenses ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Licenses   \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses    \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses or restore to the embedded evaluation licenses  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses or checkout/checkin served licenses",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Mdtags",
+					"item": [
+						{
+							"name": "dummy Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mdtags   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags Retrieve list of objects matching supplied tag name, value, or time criteria    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Remove object from metadata tag store  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Get the set of tags for an object    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Set or clear a set of metadata tags for an object",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Mtrees",
+					"item": [
+						{
+							"name": "get mtrees  list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create mtrees w/o special smt Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"/data/col1/nve\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees"
+									]
+								},
+								"description": "boy Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+							},
+							"response": []
+						},
+						{
+							"name": "mtree nve",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/%2Fdata%2Fcol1%2Fnve",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v2.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Fnve"
+									]
+								},
+								"description": "GET /rest/v2.0/dd-systems/{SYSTEM-ID}/mtrees/{ID}/stats/capacity"
+							},
+							"response": []
+						},
+						{
+							"name": "mtree nw",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/%2Fdata%2Fcol1%2Fnw",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v2.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Fnw"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mtrees   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees Get MTree information    \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees Create an MTree    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Delete an MTree  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Mtrees Id Rlfiles ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mtrees Id Rlfiles \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Get a list of retention-lock files in an mtree  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Set or Reset Retention-Lock on a file  ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Mtrees Id Stats ",
+					"item": [
+						{
+							"name": "Get stats information",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/%2Fdata%2Fcol1%2Fnw/stats",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v2.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Fnw",
+										"stats"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mtrees Id Stats \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/stats Get stats information  \r\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "83639d5e-3307-4731-8bdb-3bed4f51b8ee",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbdda907-de23-4f84-ac73-7958fce1602f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Mtrees Id Stats Capacity ",
+					"item": [
+						{
+							"name": "Get mtree level capacity stats detail forntree nve",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/%2Fdata%2Fcol1%2Fnw/stats/capacity",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v2.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"mtrees",
+										"%2Fdata%2Fcol1%2Fnw",
+										"stats",
+										"capacity"
+									]
+								},
+								"description": "boy Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Mtrees Id Stats Capacity \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/stats/capacity Get mtree level capacity stats detail  \r\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c3d867fd-c884-4f92-9758-0850f954e105",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf09d8a3-c6c8-4e77-82c7-2e46c3495127",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Networks ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Networks \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/networks Get network information  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/networks/{ID} Get a network info detail  ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Nfs Exports",
+					"item": [
+						{
+							"name": "protocols nfs ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"nfs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "protocols nfs exports",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"nfs",
+										"exports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "exports /data/col1/ecdm-backup",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/protocols/nfs/exports/%2Fdata%2Fcol1%2Fecdm-backup",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"protocols",
+										"nfs",
+										"exports",
+										"%2Fdata%2Fcol1%2Fecdm-backup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create nfs exports",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"path\": \"/data/col1/nve\",\r\n  \"clients\": [\r\n        {\r\n            \"name\": \"192.168.1.10\",\r\n            \"options\": \"sec=sys rw no_root_squash no_all_squash secure version=3\"\r\n        },\r\n        {\r\n            \"name\": \"ecdm.vlab.local\",\r\n            \"options\": \"sec=sys rw no_root_squash no_all_squash secure version=3\"\r\n        },\r\n        {\r\n            \"name\": \"powerprotec.vlab.local\",\r\n            \"options\": \"sec=sys rw no_root_squash no_all_squash secure version=3\"\r\n        }\r\n    ]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"protocols",
+										"nfs",
+										"exports"
+									]
+								},
+								"description": "{  \r\n  \"path\": \"string\",  \r\n  \"clients\": [  \r\n    {  \r\n      \"name\": \"string\",  \r\n      \"options\": \"string\"  \r\n    }  \r\n  ]  \r\n}"
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Nfs Exports \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports Get NFS export list  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports Create NFS export  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Delete an NFS export  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Get an NFS export  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Modify an NFS export  ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e3909cee-5d5d-4c8d-961d-9c6d9c5b8fb8",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f64596d0-efb4-4b8f-9c4f-33b28f17abe3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Services",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Services \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services Show status of services\r\n**Services License Server \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/license-server Get license server information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/license-server Set or reset license server information ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Services Ntp",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Services Ntp \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/ntp Get NTP Settings information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/ntp Modify an NTP Settings  ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Settings",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Settings \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/settings Get Settings information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/settings Modify an Settings  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Snapshots",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Snapshots  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/snapshots Get list of snapshot information  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/snapshots/{ID} Get a snapshot   \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Snmp",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Snmp  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/snmp Show SNMP configuration  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/snmp Modify SNMP configuration   Existing information will be replaced by new input  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Stats",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n**Stats \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/stats Get stats information ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Stats Capacity",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Stats Capacity \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/stats/capacity Get system level capacity stats details   \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "System",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**System \r\nGET /rest/v1.0/system Get system information. ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Iscsi",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Iscsi   \r\nIscsi Show/Hide List Operations Expand Operations  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/iscsi Show iSCSI configuration  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/iscsi Modify iSCSI configuration   Existing information will be replaced by new input ",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tenant Units",
+					"item": [
+						{
+							"name": "Create a Tenant Unit",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"type": "text",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1  0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"smt",
+										"tenant-units"
+									]
+								},
+								"description": "enable SMT on the DD Commandline\r\nsmt enable\r\nSee the Tenent you created\r\nsmt tenant-unit show list"
+							},
+							"response": []
+						},
+						{
+							"name": "create mtrees in special smt jschubert",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"/data/col1/tenent-mtree\",\r\n   \"tenant_unit\": \"jschubert\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"0",
+										"mtrees"
+									]
+								},
+								"description": "body Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+							},
+							"response": []
+						},
+						{
+							"name": "dummy Copy Copy Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dummy Copy Copy Copy Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dummy Copy Copy Copy Copy Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dummy Copy Copy Copy Copy Copy Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-DD-AUTH-TOKEN",
+										"value": "{{X-DD-AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "3009",
+									"path": [
+										"rest",
+										"v1.0",
+										"dd-systems",
+										"{{SYSTEM-ID}}",
+										"alerts",
+										"notify-lists"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Tenant Units  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Get Tenant Units list on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Create a Tenant Unit  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Delete a Tenant Unit  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Get a Tenant Unit  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Modify a Tenant Unit",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tenants",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Tenants  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants Get Tenants on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants Create a Tenant  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Delete a Tenant  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Get a Tenant  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Modify a Tenant  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Users",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Users   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users Get users information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users Create a User  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Delete a User  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Get a User  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Modify a User  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Vdisk Devgrps",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Vdisk Devgrps  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Delete a VDisk device group  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Get a VDisk device group  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Vdisk Devices  ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Vdisk Devices  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify a VDisk device  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify multiple VDisk devices  \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify one or more VDisk devices  \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify a VDisk device  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Vdisk Pools ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\n\r\n**Vdisk Pools  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Get VDisk pool information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Create a VDisk pool  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Delete a VDisk pool  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Get a VDisk pool  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\n",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Vdisk Stimgs  ",
+					"item": [],
+					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Vdisk Stimgs  \r\n\r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Create a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Modify multiple VDisk static images  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Delete a VDisk static image  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  ",
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Alerts Notifylists  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Delete all user-configured alert notification lists  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Show list of alerts notification lists  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists Create an alert notification list  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Delete an alert notification list  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Show details of an alert notification list  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/alerts/notify-lists/{ID} Modify an alert notification list   Existing information will be replaced by new input  \r\n**Auth  \r\nDELETE /rest/v1.0/auth Delete authentication token    \r\nPOST /rest/v1.0/auth Create authentication token    \r\n**Cifs Shares  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares Get CIFS share information    \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares Create a CIFS share   \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Delete a CIFS share    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Get a CIFS share    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares/{ID} Modify a CIFS share    \r\n**Cloud Unit  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/cloud-units Get List of Cloud Units    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/cloud-units/{ID} Get Cloud Unit Details    \r\n**Comp Measurements  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Delete multiple compression measurements  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Get the list of compression measurement information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Create a compression measurement   Note that maximum request size is 64k   Client needs to use PUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} to add more inclue/exclude paths if the total include/exclude paths causes the whole request   exceed 64k  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements Start multiple compression measurements  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Delete a compression measurement, which is not completed    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Get the detailed information of a specified compression measurement  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements/{ID} Start this job or add more include and exclude paths to a compression measurement  \r\n**Comp Measurements Support Check  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements-support-check Get information about measurements support on this system    \r\n**Data Movement  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement Data Movement information    \r\n**Data Movement Policy     \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Get List of data movement policies    \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Create data movement policy    \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Delete a data movement policy    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Get a data movement policy    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Modify a data movement policy    \r\n**Data Movement Stats Files  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/files Get Data Movement file level information  \r\n**Data Movement Stats Mtrees  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information    \r\n**Data Movement Stats Recall  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information    \r\n**Ddboost  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Get the DDBoost configuration    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Modify DDBoost configuration    \r\n**Ddboost File Replication Stats  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/file-replication/stats DDBoost File Replication stats      \r\n**Ddboost Storage Units   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Get DDBoost storage unit information     \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Create a Storage Unit    \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Delete a Storage Unit    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Get a DDBoost storage unit    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Modify a Storage Unit    \r\n**Ddboost Users   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users Get DDBoost users information    \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/users/{ID} Get a DDBoost user    \r\n**Iscsi   \r\nIscsi Show/Hide List Operations Expand Operations  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/iscsi Show iSCSI configuration  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/iscsi Modify iSCSI configuration   Existing information will be replaced by new input  \r\n**Licenses   \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses    \r\nDELETE /rest/v2.0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses or restore to the embedded evaluation licenses  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses or checkout/checkin served licenses    \r\n**Mdtags   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mdtags Retrieve list of objects matching supplied tag name, value, or time criteria    \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Remove object from metadata tag store  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Get the set of tags for an object    \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Set or clear a set of metadata tags for an object  \r\n**Mtrees   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees Get MTree information    \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees Create an MTree    \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Delete an MTree  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  \r\n**Mtrees Id Rlfiles \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Get a list of retention-lock files in an mtree  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Set or Reset Retention-Lock on a file  \r\n**Mtrees Id Stats \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/stats Get stats information  \r\n**Mtrees Id Stats Capacity \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/stats/capacity Get mtree level capacity stats detail  \r\n\r\n**Networks \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/networks Get network information  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/networks/{ID} Get a network info detail  \r\n**Nfs Exports \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports Get NFS export list  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports Create NFS export  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Delete an NFS export  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Get an NFS export  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/nfs/exports/{ID} Modify an NFS export  \r\n**Services \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services Show status of services\r\n**Services License Server \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/license-server Get license server information  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/license-server Set or reset license server information  \r\n**Services Ntp \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/ntp Get NTP Settings information  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/ntp Modify an NTP Settings  \r\n**Settings \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/settings Get Settings information  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/settings Modify an Settings  \r\n**Snapshots  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/snapshots Get list of snapshot information  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/snapshots/{ID} Get a snapshot   \r\n**Snmp  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/snmp Show SNMP configuration  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/services/snmp Modify SNMP configuration   Existing information will be replaced by new input  \r\n**Stats \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/stats Get stats information  \r\n**Stats Capacity \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/stats/capacity Get system level capacity stats details   \r\n**System  \r\n**Tenant Units  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Get Tenant Units list on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Create a Tenant Unit  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Delete a Tenant Unit  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Get a Tenant Unit  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Modify a Tenant Unit   \r\n**Tenants  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenants Get Tenants on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenants Create a Tenant  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Delete a Tenant  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Get a Tenant  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Modify a Tenant  \r\n**Users   \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users Get users information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users Create a User  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users/{ID} Delete a User  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users/{ID} Get a User  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/users/{ID} Modify a User  \r\n**Vdisk Devgrps  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Delete a VDisk device group  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Get a VDisk device group  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\n\r\n**Vdisk Devices  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify a VDisk device  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify multiple VDisk devices  \r\nDELETE /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify one or more VDisk devices  \r\nDELETE /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify a VDisk device  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\n\r\n**Vdisk Pools  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Get VDisk pool information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Create a VDisk pool  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Delete a VDisk pool  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Get a VDisk pool  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\n\r\n**Vdisk Stimgs  \r\n\r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nPOST https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Create a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Modify multiple VDisk static images  \r\nDELETE https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Delete a VDisk static image  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT /rest/v2.0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "842ad749-76a8-4e47-a5ca-745249dd8417",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "23256b09-a61a-41af-b2c9-1b0b3b91f644",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Automatisation",
+			"item": [
+				{
+					"name": "DD System Info for ID 0 users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ost\",\r\n  \"role\": \"admin\",\r\n  \"password\": \"password123!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"users"
+							]
+						},
+						"description": "Posible Body data\n{\n  \"name\": \"ost\",\n  \"role\": \"admin\",\n  \"password\": \"ost\",\n  \"min_days_between_change\": 0,\n  \"max_days_between_change\": 0,\n  \"warn_days_before_expire\": 0,\n  \"disable_days_after_expire\": 0,\n  \"disable_date\": \"string\",\n  \"force_password_change\": true\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update USer Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"current_password\": \"password123!\",\n  \"new_password\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users/ost",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"users",
+								"ost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL a User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users/ost",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"users",
+								"ost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get mtrees ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create mtrees w/o special smt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"/data/col1/mynewmtree\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees"
+							]
+						},
+						"description": "boy Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+					},
+					"response": []
+				},
+				{
+					"name": "DEL mtrees",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees/%2Fdata%2Fcol1%2Fmznewmtree",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees",
+								"%2Fdata%2Fcol1%2Fmznewmtree"
+							]
+						},
+						"description": "boy Information\n\n{\n  \"name\": \"string\",\n  \"tenant_unit\": \"string\",\n  \"quota_config\": {\n    \"hard_limit\": 0,\n    \"soft_limit\": 0\n  }\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "create SMT tenent jschubert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"jschubert\"\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/smt/tenant-units",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"smt",
+								"tenant-units"
+							]
+						},
+						"description": "enable SMT on the DD Commandline  \nsmt enable  \nSee the Tenent you created  \nsmt tenant-unit show list"
+					},
+					"response": []
+				},
+				{
+					"name": "view SMT tenents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "118fdb2e2516ccc930319778febaebe15"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"jschubert\"\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/smt/tenant-units",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"smt",
+								"tenant-units"
+							]
+						},
+						"description": "enable SMT on the DD Commandline  \nsmt enable  \nSee the Tenent you created  \nsmt tenant-unit show list"
+					},
+					"response": []
+				},
+				{
+					"name": "create mtrees in special smt jschubert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"/data/col1/tenent-mtree\",\r\n   \"tenant_unit\": \"jschubert\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees"
+							]
+						},
+						"description": "boy Information\n\n{  \n  \"name\": \"string\",  \n  \"tenant_unit\": \"string\",  \n  \"quota_config\": {  \n    \"hard_limit\": 0,  \n    \"soft_limit\": 0  \n  }  \n}"
+					},
+					"response": []
+				},
+				{
+					"name": "DEL mtrees tenent-mtree",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees/%2Fdata%2Fcol1%2Ftenent-mtree",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees",
+								"%2Fdata%2Fcol1%2Ftenent-mtree"
+							]
+						},
+						"description": "boy Information\n\n{\n  \"name\": \"string\",\n  \"tenant_unit\": \"string\",\n  \"quota_config\": {\n    \"hard_limit\": 0,\n    \"soft_limit\": 0\n  }\n}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filter & Sort",
+			"item": [
+				{
+					"name": "DD System Info for ID 0 users with FIlter & Sort",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/users?sort=name",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"users"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "filter",
+									"value": "role%3Dadmin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get mtrees FIlter for special Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/0/mtrees?sort=name&filter=name=/data/col1/mt*",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"0",
+								"mtrees"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "filter",
+									"value": "name=/data/col1/mt*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter and Sort Get CIFS share information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-DD-AUTH-TOKEN",
+								"value": "{{X-DD-AUTH-TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/protocols/cifs/shares?sort=name",
+							"protocol": "https",
+							"host": [
+								"{{DD}}"
+							],
+							"port": "3009",
+							"path": [
+								"rest",
+								"v1.0",
+								"dd-systems",
+								"{{SYSTEM-ID}}",
+								"protocols",
+								"cifs",
+								"shares"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9165a0fb-01aa-49a9-81d9-80fd11df554d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "49cc296d-b90b-4de8-ae68-19cb589b707a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "37fdc13e-27b2-4891-bd48-60545b23c3c2",
+			"key": "X-DD-AUTH-TOKEN",
+			"value": "9ff57880d4a350d07a7cd846f9db125d5",
+			"type": "string"
+		}
+	]
+}

@@ -1,13 +1,197 @@
 {
 	"info": {
-		"_postman_id": "623f4fc1-4c10-48f0-8da6-19cb7fc736fd",
+		"_postman_id": "a7865e07-3acb-41ee-9d51-f1c5c2047d8f",
 		"name": "NetWork 19.1",
+		"description": "You\"ll find the latest postman Collection and environment variables in my Github repository:\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/19.1\n\nPlease download the postman_collection.json and the postman_environment.json and import into your postman runing on your system.\n\nRoot directory will be:\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Authenticate",
 			"item": [
+				{
+					"name": "Restapi entrypoint",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "administrator1",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Password12",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								""
+							]
+						},
+						"description": "Find out your NetWorker IP address as well as login and Password. We will need it later.\nTo store it permanently right klick the folder authentication and navigate to the authorization tab. NetWorker will use basic auth.\nThat is the NetWorker ReST api entrypoint we\"ll use the rest of this webcast.\n\nYou\"ll find the latest postman Collection and environment variables in my Github repository:\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/19.1\n\nPlease download the postman_collection.json and the postman_environment.json and import into your postman runing on your system.\n\nRoot directory will be:\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api"
+					},
+					"response": []
+				},
+				{
+					"name": "JSON schema for API messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/nwrestapi.json",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"schemas",
+								"nwrestapi.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swaggerfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"schemas",
+								"swagger.json"
+							]
+						},
+						"description": "JSON Editor Online - view, edit and format JSON online\r\nhttps://jsoneditoronline.org/"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "52498808-fd3f-4bb0-af82-3cd7a3f52ef1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "45faa397-d032-43c2-b933-bfec11639a26",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Rest api",
+			"item": [
+				{
+					"name": "nwrestapi/v1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v1",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nwrestapi/v2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v2",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nwrestapi/v3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Restapi entrypoint",
 					"request": {
@@ -28,10 +212,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/",
 							"protocol": "https",
@@ -48,16 +228,12 @@
 					"response": []
 				},
 				{
-					"name": "Swaggerfile",
+					"name": "/nwrestapi/v3/global",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/schemas/swagger.json",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -66,13 +242,70 @@
 							"path": [
 								"nwrestapi",
 								"v3",
-								"schemas",
-								"swagger.json"
+								"global"
 							]
-						},
-						"description": "JSON Editor Online - view, edit and format JSON online\r\nhttps://jsoneditoronline.org/"
+						}
 					},
 					"response": []
+				},
+				{
+					"name": "v3/global/vmware",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5c5e70a3-7e7e-4a56-ae09-65efc5f55e2f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0618c61b-d710-45b7-b6c9-e946ceff91ec",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -84,12 +317,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?fl=hostname",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -104,10 +333,17 @@
 							"query": [
 								{
 									"key": "fl",
-									"value": "hostname"
+									"value": "hostname",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "hostname: win1.vlab.local",
+									"disabled": true
 								}
 							]
-						}
+						},
+						"description": "We are discussing here the introdcution of\nFiler and query.\nFilter (fl) for filtering what will come back. So filter to see onyl requestion ressources\n\nand uery to query ressources for a special ressource. Like onyl the infromation from a special client"
 					},
 					"response": []
 				},
@@ -116,10 +352,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/?fl=name",
 							"protocol": "https",
@@ -140,7 +372,8 @@
 									"value": "name"
 								}
 							]
-						}
+						},
+						"description": "See what ploicies your networker server does have today right now ?"
 					},
 					"response": []
 				},
@@ -149,12 +382,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?fl=name",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -169,7 +398,13 @@
 							"query": [
 								{
 									"key": "fl",
-									"value": "name"
+									"value": "name, backupOptimization",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "name: Demo_ProtectionGroup",
+									"disabled": true
 								}
 							]
 						}
@@ -190,7 +425,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Demo_ProtectionGroup\"\n}"
+							"raw": "{\n\t\"comment\": \"Plicy created on the Partner Webcast\",\n\t\"name\": \"Demo_ProtectionGroup\"\n}"
 						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups",
@@ -205,7 +440,8 @@
 								"global",
 								"protectiongroups"
 							]
-						}
+						},
+						"description": "We wann create a new Protection Group. But how?\nWe have seen that with  https://jsoneditoronline.org/ we can view the swagger file. But where to add the infromation and what to include.\nFirst go and insert the NW Swagger file into the jsond online editor. Search in the editor for \"protectiongroups\" and just navigate to that one in\n\"object > path > protectiongroups\". Here you\" find the information you need for that POST."
 					},
 					"response": []
 				},
@@ -214,10 +450,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?q=name:Demo_ProtectionGroup",
 							"protocol": "https",
@@ -242,6 +474,76 @@
 					"response": []
 				},
 				{
+					"name": "Update Protection Group - with new Content",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Policy created on the Partner Webcast\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups/Demo_ProtectionGroup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups",
+								"Demo_ProtectionGroup"
+							]
+						},
+						"description": "Make sure you have update the policyId variable in you environment you are using."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Protection Group - Type: Client Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Plicy created on the Partner Webcast\",\n\t\"name\": \"Demo_ProtectionGroup\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups/Demo_ProtectionGroup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups",
+								"Demo_ProtectionGroup"
+							]
+						},
+						"description": "Make sure you have update the policyId variable in you environment you are using."
+					},
+					"response": []
+				},
+				{
 					"name": "Create Client",
 					"request": {
 						"method": "POST",
@@ -255,7 +557,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"hostname\":\"sql-01.demo.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+							"raw": "{\r\n   \"hostname\":\"win1.vlab.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
 						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients",
@@ -271,7 +573,7 @@
 								"clients"
 							]
 						},
-						"description": "Make sure you can do a nslookup of the client you created. If not create an entry into NetWorkers hostfile under:\n>notepad %windir%\\system32\\drivers\\etc\\hosts\nentster the ip from the NW Server with a hostname\n192.168.1.11 \tnwdemo.demo.local"
+						"description": "DemoCenter you can use> sql-01.demo.local\nMake sure you can do a nslookup of the client you created. If not create an entry into NetWorkers hostfile under:\n>notepad %windir%\\system32\\drivers\\etc\\hosts\nentster the ip from the NW Server with a hostname\n192.168.1.11 \tnwdemo.demo.local"
 					},
 					"response": []
 				},
@@ -280,12 +582,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?fl=hostname, resourceid&q=hostname:\"sql-01.demo.local\"",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?fl=hostname, resourceid&q=hostname:\"win1.vlab.local\"",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -304,10 +602,11 @@
 								},
 								{
 									"key": "q",
-									"value": "hostname:\"sql-01.demo.local\""
+									"value": "hostname:\"win1.vlab.local\""
 								}
 							]
-						}
+						},
+						"description": "feed postman variable {{NWClient_id}} with NW ClientID"
 					},
 					"response": []
 				},
@@ -331,7 +630,7 @@
 							"raw": "{\r\n   \"hostname\":\"ok-sql2\",\r\n   \"saveSets\":[\r\n      \"C:\\\\nix\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"BOB2019_ProtectionGroup\"\r\n\t]\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/{{NWClient_id}}",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -342,10 +641,90 @@
 								"v3",
 								"global",
 								"clients",
-								"47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116"
+								"{{NWClient_id}}"
 							]
 						},
 						"description": "Copy and paste from the last query the RessourceID from that client"
+					},
+					"response": []
+				},
+				{
+					"name": "Get backups of Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/{{NWClient_id}}/backups",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"{{NWClient_id}}",
+								"backups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Backup this client",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Password123!",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "administrator",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"policy\": \"DemoPolicy\", \n\t\"workflow\": \"Demo_Workflow1\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/{{NWClient_id}}/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"{{NWClient_id}}",
+								"op",
+								"backup"
+							]
+						},
+						"description": "feed NWClient_id with the client you wanna backup  \n\nhttps://192.168.1.59:9090/nwrestapi/v3/global/clients/86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59/op/backup"
 					},
 					"response": []
 				},
@@ -363,10 +742,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"hostname\":\"sql-01.demo.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\install\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+							"raw": "{\r\n   \"hostname\":\"win1.vlab.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\Windows\\\\debug\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/{{NWClient_id}}",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -377,7 +756,64 @@
 								"v3",
 								"global",
 								"clients",
-								"47.0.188.17.0.0.0.0.113.98.208.92.253.186.221.6.240.13.180.0.160.221.4.116"
+								"{{NWClient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update SS to C:\\\\Windows\\\\debug",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"sql-01.demo.local\",\r\n   \"saveSets\":[\r\n      \"C:\\\\Windows\\\\debug\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"DEMO_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/{{NWClient_id}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"{{NWClient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Policies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								""
 							]
 						}
 					},
@@ -422,10 +858,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/?q=name:DemoPolicy",
 							"protocol": "https",
@@ -456,6 +888,51 @@
 					"response": []
 				},
 				{
+					"name": "Find a pool for backup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/pools?q=poolType: Backup&fl=labelTemplate, name",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"pools"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "poolType: Backup"
+								},
+								{
+									"key": "q",
+									"value": "mediaTypeRequired: \"Data Domain\"",
+									"description": "onyl show the DD pools",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "poolType: BackupClone",
+									"description": "only show Clone Pools Information",
+									"disabled": true
+								},
+								{
+									"key": "fl",
+									"value": "labelTemplate, name"
+								}
+							]
+						},
+						"description": "Find a pool we can use for backup !!"
+					},
+					"response": []
+				},
+				{
 					"name": "Create Workflow",
 					"request": {
 						"method": "POST",
@@ -469,7 +946,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Demo_Workflow1\",\r\n  \"autoStartEnabled\": true,\r\n  \"description\": \"Workflow created by REST API call\",\r\n  \"enabled\": true,\r\n  \"endTime\": \"23:00\",\r\n  \"protectionGroups\": [\r\n\t\"Demo_ProtectionGroup\"\r\n  ],\r\n  \"startInterval\": \"24:00\",\r\n  \"startTime\": \"19:00\",\r\n  \"actions\": [\r\n\t{\r\n\t  \"actionSpecificData\": {\r\n\t\t\"backup\": {\r\n\t\t  \"backupSpecificData\": {\r\n\t\t\t\"traditional\": {\r\n\t\t\t  \"destinationPool\": \"BOOST\"\r\n\t\t\t}\r\n\t\t  },\r\n\t\t  \"retentionPeriod\": \"1 Months\"\r\n\t\t}\r\n\t  },\r\n\t  \"name\": \"backup\",\r\n\t  \"scheduleActivities\": [\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\"\r\n\t  ],\r\n\t  \"schedulePeriod\": \"Week\"\r\n\t}\r\n  ]\r\n}"
+							"raw": "{\r\n  \"name\": \"Demo_Workflow1\",\r\n  \"autoStartEnabled\": true,\r\n  \"description\": \"Workflow created by REST API call\",\r\n  \"enabled\": true,\r\n  \"endTime\": \"23:00\",\r\n  \"protectionGroups\": [\r\n\t\"Demo_ProtectionGroup\"\r\n  ],\r\n  \"startInterval\": \"24:00\",\r\n  \"startTime\": \"19:00\",\r\n  \"actions\": [\r\n\t{\r\n\t  \"actionSpecificData\": {\r\n\t\t\"backup\": {\r\n\t\t  \"backupSpecificData\": {\r\n\t\t\t\"traditional\": {\r\n\t\t\t  \"destinationPool\": \"ddve1vlablocal\"\r\n\t\t\t}\r\n\t\t  },\r\n\t\t  \"retentionPeriod\": \"1 Months\"\r\n\t\t}\r\n\t  },\r\n\t  \"name\": \"backup\",\r\n\t  \"scheduleActivities\": [\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\"\r\n\t  ],\r\n\t  \"schedulePeriod\": \"Week\"\r\n\t}\r\n  ]\r\n}"
 						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows",
@@ -486,57 +963,8 @@
 								"DemoPolicy",
 								"workflows"
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "list available pools",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
 						},
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Workflow",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Demo_Workflow1\",\r\n  \"autoStartEnabled\": true,\r\n  \"description\": \"Workflow created by REST API call\",\r\n  \"enabled\": true,\r\n  \"endTime\": \"23:00\",\r\n  \"protectionGroups\": [\r\n\t\"Demo_ProtectionGroup\"\r\n  ],\r\n  \"startInterval\": \"24:00\",\r\n  \"startTime\": \"19:00\",\r\n  \"actions\": [\r\n\t{\r\n\t  \"actionSpecificData\": {\r\n\t\t\"backup\": {\r\n\t\t  \"backupSpecificData\": {\r\n\t\t\t\"traditional\": {\r\n\t\t\t  \"destinationPool\": \"ddve01demolocal\"\r\n\t\t\t}\r\n\t\t  },\r\n\t\t  \"retentionPeriod\": \"1 Months\"\r\n\t\t}\r\n\t  },\r\n\t  \"name\": \"backup\",\r\n\t  \"scheduleActivities\": [\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\",\r\n\t\t\"full\"\r\n\t  ],\r\n\t  \"schedulePeriod\": \"Week\"\r\n\t}\r\n  ]\r\n}"
-						},
-						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows",
-							"protocol": "https",
-							"host": [
-								"{{server}}"
-							],
-							"port": "9090",
-							"path": [
-								"nwrestapi",
-								"v3",
-								"global",
-								"protectionpolicies",
-								"DemoPolicy",
-								"workflows"
-							]
-						}
+						"description": "Epoch  translator > https://www.epochconverter.com/"
 					},
 					"response": []
 				},
@@ -545,10 +973,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/DemoPolicy/workflows/Demo_Workflow1",
 							"protocol": "https",
@@ -601,7 +1025,8 @@
 								"workflows",
 								"Demo_Workflow1"
 							]
-						}
+						},
+						"description": "Let\"s just add a Cloning Action into the workflow! Yes?No?"
 					},
 					"response": []
 				},
@@ -644,16 +1069,12 @@
 					"response": []
 				},
 				{
-					"name": "Query Job Status",
+					"name": "View job Status",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/737916",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/3941",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -664,10 +1085,9 @@
 								"v3",
 								"global",
 								"jobs",
-								"737916"
+								"3941"
 							]
-						},
-						"description": "The \"Run Workflow\" should return in the Headers a Location like:\nLocation →https://192.168.1.20:9090/nwrestapi/v3/global/jobs/1414343\nuse this one to identify the job which run"
+						}
 					},
 					"response": []
 				},
@@ -676,12 +1096,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1414343/log",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/3941/log",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -692,12 +1108,3263 @@
 								"v3",
 								"global",
 								"jobs",
-								"1414343",
+								"3941",
 								"log"
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all NW Clients with client IDs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?q=hostname: win1.vlab.local",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "hostname",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "hostname: win1.vlab.local"
+								}
+							]
+						},
+						"description": "We are discussing here the introdcution of\nFiler and query.\nFilter (fl) for filtering what will come back. So filter to see onyl requestion ressources\n\nand uery to query ressources for a special ressource. Like onyl the infromation from a special client"
+					},
+					"response": []
+				},
+				{
+					"name": "Backup the save sets for a given client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"policy\": \"DemoPolicy\", \n\t\"workflow\": \"Demo_Workflow1\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59",
+								"op",
+								"backup"
+							]
+						},
+						"description": "/clients/{clientId}/op/backup"
+					},
+					"response": []
+				},
+				{
+					"name": "Query Job Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/3946?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"3946"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "state: Completed",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "The \"Run Workflow\" should return in the Headers a Location like:\nLocation →https://192.168.1.20:9090/nwrestapi/v3/global/jobs/1414343\nuse this one to identify the job which run"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "376fe3b4-6f0f-4d24-a15d-975269cf7b57",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a06fb790-912c-48c3-b36e-f38d0482187a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Recover",
+			"item": [
+				{
+					"name": "get all backups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"backups"
+							]
+						},
+						"description": "Epoch translator > https://www.epochconverter.com/"
+					},
+					"response": []
+				},
+				{
+					"name": "See Item of Backup with BackupID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups/{{NWBackupID}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"backups",
+								"{{NWBackupID}}"
+							]
+						},
+						"description": "/backups/{backupId}"
+					},
+					"response": []
+				},
+				{
+					"name": "See Instace of Backup Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups/{{NWBackupID}}/instances/1562929687",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"backups",
+								"{{NWBackupID}}",
+								"instances",
+								"1562929687"
+							]
+						},
+						"description": "/backups/{backupId}/instances/{instanceId}"
+					},
+					"response": []
+				},
+				{
+					"name": "See all Recovers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups/{{NWBackupID}}/instances/1560952185",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"backups",
+								"{{NWBackupID}}",
+								"instances",
+								"1560952185"
+							]
+						},
+						"description": "/backups/{backupId}/instances/{instanceId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client by resourceId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"ok-sql2\",\r\n   \"saveSets\":[\r\n      \"C:\\\\nix\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"BOB2019_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/?fl=aliases,resourceId&q=hostname:\"win1.vlab.local\"",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								""
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "aliases,resourceId"
+								},
+								{
+									"key": "q",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "hostname:\"win1.vlab.local\""
+								}
+							]
+						},
+						"description": "Copy and paste from the last query the RessourceID from that client"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client from special resourceId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"ok-sql2\",\r\n   \"saveSets\":[\r\n      \"C:\\\\nix\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"BOB2019_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59"
+							]
+						},
+						"description": "Copy and paste from the last query the RessourceID from that client"
+					},
+					"response": []
+				},
+				{
+					"name": "Indexes of backup from special client",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"hostname\":\"ok-sql2\",\r\n   \"saveSets\":[\r\n      \"C:\\\\nix\"\r\n   ],\r\n   \"protectionGroups\": [\r\n                \"BOB2019_ProtectionGroup\"\r\n\t]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients/86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59/indexes",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"clients",
+								"86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59",
+								"indexes"
+							]
+						},
+						"description": "Copy and paste from the last query the RessourceID from that client"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Recover Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \n  \"actionForDuplicateItems\": \"Rename\",\n  \"destinationClientResID\": \"86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59\",\n  \"itemsToRecover\": [\n                \"C:\\\\Windows\\\\debug\\\\sammui.log\"\n            ],\n \"recoveryType\": \"Filesystem\",\n \"namespace\": \"backup\",         \n \"timeStampBasedGranularRecover\": {\n                \"sourceClientResID\": \"86.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59\",\n                \"timeStamp\": \"2019-07-12T13:08:06+02:00\"\n            }\n\n\n\n  \n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/recovers",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"recovers"
+							]
+						},
+						"description": "/backups/{backupId}/instances/{instanceId}\n\nFor date conversatoin us Epoche Time conversation at https://www.epochconverter.com/"
+					},
+					"response": []
+				},
+				{
+					"name": "See all Recovers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/recovers",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"recovers"
+							]
+						},
+						"description": "/backups/{backupId}/instances/{instanceId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the recover job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/recovers/57.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"recovers",
+								"57.0.147.94.0.0.0.0.6.37.9.93.192.168.1.59"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9e9c5d83-895a-4001-b5a1-10a66150502f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dec29f67-491b-48d6-951a-76bf064432be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "VMWare Backup",
+			"item": [
+				{
+					"name": "v3/global/vmware",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware"
+							]
+						},
+						"description": "What do we need to backup VMs. Now it\"s getting a little more complex."
+					},
+					"response": []
+				},
+				{
+					"name": "vmware/vproxies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vproxies",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vproxies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Policy  VMware_Webcast_Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"This policy is for demo purposes only created during this webcast\",\n\t\"name\": \"VMware_Webcast_Policy\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies"
+							]
+						},
+						"description": "Createa a Policy and have the information available in the body"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all avail Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/?q=name:\"VMware_Webcast_Policy\"",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "name:\"VMware_Webcast_Policy\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name:VMware_Webcast_Demo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Policy  VMware_Webcast_Policy Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"This policy is for demo purposes only created during this webcast\",\n\t\"name\": \"VMware_Webcast_Policy\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/{{ressoureceID}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"{{ressoureceID}}"
+							]
+						},
+						"description": "Createa a Policy"
+					},
+					"response": []
+				},
+				{
+					"name": "List of vCenters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List vcenter01.demo.local",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List ProtectionGroups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups?fl=name",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Protection Group - Type: VMWare static",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VMware_Webcast_ProtectionGroup\",\n    \"workItemSource\": \"Static\",\n    \"workItemSubType\": \"All\",\n    \"workItemType\": \"VMware\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups"
+							]
+						},
+						"description": "Watch out. You need more contenten when you createa a Protection Group for VMWare Backup\n\nvCenterHostname and vmUUIDs of the VMs to be backedup.\nQuery the needed Ressources in your vcenter \nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/VMWare"
+					},
+					"response": []
+				},
+				{
+					"name": "Add or remove VMware work items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"addWorkItems\": {\n        \"vCenterHostname\": \"vcenter01.demo.local\",\n        \"vmUuids\": [\n            \"501123d1-0cba-d9af-bb3f-5f5937023d0c\"\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups/VMware_Webcast_ProtectionGroup/op/updatevmwareworkitems",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups",
+								"VMware_Webcast_ProtectionGroup",
+								"op",
+								"updatevmwareworkitems"
+							]
+						},
+						"description": "vCenterHostname and vmUUIDs of the VMs to be backedup.\nQuery the needed Ressources in your vcenter \nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/VMWare"
+					},
+					"response": []
+				},
+				{
+					"name": "List ProtectionGroup VMware_Webcast_ProtectionGroup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups/VMware_Webcast_ProtectionGroup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups",
+								"VMware_Webcast_ProtectionGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete VMware_Webcast_ProtectionGroup",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectiongroups/VMware_Webcast_ProtectionGroup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectiongroups",
+								"VMware_Webcast_ProtectionGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Devices - find DD only",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5pc3RyYXRvcjpFbWNsZWdhdG9AMTIz"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "10.31.227.39:9090"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "f52ca398-78ba-4d9b-a9ce-c193662b6eb9,c66ab47d-027f-40d7-80e8-f2ac96055f6a"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.11.0"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate"
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices?q=mediaType:%22Data%20Domain%22&fl=deviceAccessInfo,mediaType, volumePool",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "mediaType:%22Data%20Domain%22"
+								},
+								{
+									"key": "fl",
+									"value": "deviceAccessInfo,mediaType, volumePool"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VM WF, backup + clone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VMware_Webcast_Workflow\",\n    \"protectionGroups\": [\n        \"VMware_Webcast_ProtectionGroup\"\n    ],\n    \"startTime\": \"21:00\",\n    \"actions\": [\n        {\n            \"actionSpecificData\": {\n                \"backup\": {\n                    \"retentionPeriod\": \"1 Months\",\n                    \"backupSpecificData\": {\n                        \"vmwareVProxy\": {\n                            \"destinationPool\": \"ddve01demolocal\"\n                        }\n                    }\n                }\n            },\n            \"name\": \"backup\",\n            \"scheduleActivities\": [\n                \"incr\",\n                \"incr\",\n                \"incr\",\n                \"incr\",\n                \"incr\",\n                \"incr\",\n                \"incr\"\n            ],\n            \"schedulePeriod\": \"Week\"\n        },\n        {\n            \"actionSpecificData\": {\n                \"clone\": {\n                    \"destinationPool\": \"ddve02demolocalClone\",\n                    \"retentionPeriod\": \"1 Months\"\n                }\n            },\n            \"drivenBy\": \"backup\",\n            \"name\": \"clone\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows"
+							]
+						},
+						"description": "We need to find the right pool for Backup and Cloning here. you can use the \"Query Devices - find DD only\" get Requst for that"
+					},
+					"response": []
+				},
+				{
+					"name": "Get WF Information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows/VMware_Webcast_Workflow",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows",
+								"VMware_Webcast_Workflow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run Workflow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows/VMware_Webcast_Workflow/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows",
+								"VMware_Webcast_Workflow",
+								"op",
+								"backup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run specifics VM backup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows/VMware_Webcast_Workflow/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows",
+								"VMware_Webcast_Workflow",
+								"op",
+								"backup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Job Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376003?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376003"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "state",
+									"disabled": true
+								}
+							]
+						},
+						"description": "look for   \n\"state\": \"Active\" - means the job is still running  \n**completed**  \n \"state\": \"Completed\"  \n \"exitCode\": 0"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376089/op/cancel?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376089",
+								"op",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "state",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show job logfiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376089/log?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376089",
+								"log"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "state",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run adHoc Backup of individual VM",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"vmwareWorkItemSelection\" : {\r\n\"vCenterHostname\" : \"vcenter01.demo.local\",\r\n\"vmUuids\" : [\"{{backup_vm_uuid}}\"]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows/VMware_Webcast_Workflow/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows",
+								"VMware_Webcast_Workflow",
+								"op",
+								"backup"
+							]
+						},
+						"description": "We need to find the right pool for Backup and Cloning here. you can use the \"Query Devices - find DD only\" get Requst for that"
+					},
+					"response": []
+				},
+				{
+					"name": "Run adHoc Backup of individual VM another",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"vmwareWorkItemSelection\" : {\r\n\"vCenterHostname\" : \"vcenter01.demo.local\",\r\n\"vmUuids\" : [\"{{backup_vm_uuid}}\"]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/VMware_Webcast_Policy/workflows/VMware_Webcast_Workflow/op/backup",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"VMware_Webcast_Policy",
+								"workflows",
+								"VMware_Webcast_Workflow",
+								"op",
+								"backup"
+							]
+						},
+						"description": "We need to find the right pool for Backup and Cloning here. you can use the \"Query Devices - find DD only\" get Requst for that"
+					},
+					"response": []
+				},
+				{
+					"name": "List of vproxies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vproxies",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vproxies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "57243f94-e9f1-4736-8bda-6a6347da6a65",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9879d690-96cf-426b-aa2d-bf051b122e47",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Recover VMs",
+			"item": [
+				{
+					"name": "WIP / Recovering a VM as a new VM",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"computeResourceMoref\" : \"domain-s7\",\r\n\"datacenterMoref\": \"datacenter-2\",\r\n\"datastoreMoref\" : \"datastore-11\",\r\n\"disks\" : [\r\n{\r\n\"datastoreMoref\":\"datastore-11\",\r\n\"key\":\"2000\",\r\n\"name\":\"Hard disk 1\"\r\n},\r\n{\r\n\"datastoreMoref\":\"datastore-11\",\r\n\"key\":\"2001\",\r\n\"name\":\"Hard disk 2\"\r\n}\r\n],\r\n\"hostMoref\": \"host-9\",\r\n\"jobName\": \"jobName\",\r\n\"powerOn\": false,\r\n\"reconnectNic\" : false,\r\n\"recoverMode\" : \"New\",\r\n\"vCenterHostname\" : \"hostname.company.com\",\r\n\"vmName\" : \"newVmName\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/hostname.company.com/protectedvms/50085479-6e0f-2383-7cb8-15883df49fde/backups/9524aeb0-00000006-f824e4c1-5824e4c1-00090c00-80c64a29/op/recove",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"hostname.company.com",
+								"protectedvms",
+								"50085479-6e0f-2383-7cb8-15883df49fde",
+								"backups",
+								"9524aeb0-00000006-f824e4c1-5824e4c1-00090c00-80c64a29",
+								"op",
+								"recove"
+							]
+						},
+						"description": "/backups/{backupId}/instances/{instanceId}\n\nFor date conversatoin us Epoche Time conversation at https://www.epochconverter.com/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": " VMware Mount - FLR",
+			"item": [
+				{
+					"name": "VM Query all protectd VMs - filtered",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms?fl=hostname,name,osname,uuid",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "hostname,name,osname,uuid"
+								}
+							]
+						},
+						"description": "find the vcenter server and edit the {{vcenter-server}} variable to refelect the vecenter"
+					},
+					"response": []
+				},
+				{
+					"name": "#1 items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/501123d1-0cba-d9af-bb3f-5f5937023d0c",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"20"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"501123d1-0cba-d9af-bb3f-5f5937023d0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item from UUID VM - protected",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#2 backups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/501123d1-0cba-d9af-bb3f-5f5937023d0c/backups",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"20"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local",
+								"protectedvms",
+								"501123d1-0cba-d9af-bb3f-5f5937023d0c",
+								"backups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of backups - protected UUID vm",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "savetime",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Search for savetime  \nand a \"level\": \"Full\","
+					},
+					"response": []
+				},
+				{
+					"name": "#3 next item level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/501123d1-0cba-d9af-bb3f-5f5937023d0c/backups/f9014147-00000006-e93c45c1-5c3c45c1-00185000-a5990156",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"20"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local",
+								"protectedvms",
+								"501123d1-0cba-d9af-bb3f-5f5937023d0c",
+								"backups",
+								"f9014147-00000006-e93c45c1-5c3c45c1-00185000-a5990156"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#4 Recovery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://192.168.1.20:9090/https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/{{protectedvms-uuids}}/backups/f9014147-00000006-e93c45c1-5c3c45c1-00185000-a5990156/instances/1547453889/op/recover",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"20"
+							],
+							"port": "9090",
+							"path": [
+								"https:",
+								"",
+								"{{server}}:9090",
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups",
+								"f9014147-00000006-e93c45c1-5c3c45c1-00185000-a5990156",
+								"instances",
+								"1547453889",
+								"op",
+								"recover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Backups - Items of protected UUID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups/{{protectedvms-backup-id}}?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups",
+								"{{protectedvms-backup-id}}"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "saveTime",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Search for the **/op/vmount** entry. Parameters we can use:"
+					},
+					"response": []
+				},
+				{
+					"name": "List of vproxies ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vproxies",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vproxies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Mount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\t\"installFlrAgent\": true,\r\n\t\"targetVCenterHostname\": \"vcenter01.demo.local\",\r\n\t\"targetVmAdminUserId\": \"root\",\r\n\t\"targetVmAdminUserPassword\": \"Password123!\",\r\n\t\"targetVmMoref\": \"vm-31\",\r\n\t\"targetVmName\": \"OracleCentos\",\r\n\t\"targetVmUserId\": \"root\",\r\n\t\"targetVmUserPassword\": \"Password123!\",\r\n\t\"uninstallFlrAgent\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups/{{protectedvms-backup-id}}/instances/1560801610/op/vmmount",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups",
+								"{{protectedvms-backup-id}}",
+								"instances",
+								"1560801610",
+								"op",
+								"vmmount"
+							]
+						},
+						"description": "search for the **/op/vmount** entry.\nParameters we can use:\n\n\t\"backupDeviceExportPath\": \"NetWorker Server name\",\n\t\"installFlrAgent\": true,\n\t\"targetVCenterHostname\": \"vcenter01.demo.local\",\n\t\"targetVmAdminUserId\": \"Administrator\",   ---needs to be loacal admin as it\"s doing the mount\n\t\"targetVmAdminUserPassword\": \"Password123!\",\n\t\"targetVmMoref\": \"vm-896\",   Moref of the VM\n\t\"targetVmName\": \"SQL-01\",\n\t\"targetVmUserId\": \"Administrator\",\n\t\"targetVmUserPassword\": \"Password123!\",\n\t\"uninstallFlrAgent\": false,\n\t\"vProxy\": \"NW-vProxy01.demo.local\"\n\t\n\tIn the jason look for \n\tobject > path > /vmware/vcenters/{vcenter-hostname}/protectedvms/{vm-uuid}/backups/{backup-id}/op/vmmount\n\t\n\tParameter 0: vcenter-hostname\n\tParameter 1: vm-uuid\n\tParameter 2: backup-id\n\tParameter 3: in the body the backupOpVmMount schemalookup as #/definitions/BackupOpVmMount\n\t\n\tLookup the backupOpVmMount in \n\tobject > definitions > BackupOpVmMount so the properties tell you what you need  \n\t\n\thttps://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/501123d1-0cba-d9af-bb3f-5f5937023d0c/backups/89bac572-00000006-ff07c71c-5d07c71c-00025000-a5990156/op/vmmount"
+					},
+					"response": []
+				},
+				{
+					"name": "VM Mount State",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376086",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376086"
+							]
+						},
+						"description": "Look for \n\"state\": \"SessionActive\"\n\"vProxyMountState\": \"Unmounted\""
+					},
+					"response": []
+				},
+				{
+					"name": "VM Mount Browse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n               \"idleTimeout\": 5000\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/{{protectedvms-uuids}}backups/0541c9eb-00000006-0bbd5d2c-5bbd5d2c-00f65000-fda3bf56/op/vmmount/f095b332-932a-4199-a79a-cd411ee3bdf7/vmbrowse",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local",
+								"protectedvms",
+								"{{protectedvms-uuids}}backups",
+								"0541c9eb-00000006-0bbd5d2c-5bbd5d2c-00f65000-fda3bf56",
+								"op",
+								"vmmount",
+								"f095b332-932a-4199-a79a-cd411ee3bdf7",
+								"vmbrowse"
+							]
+						},
+						"description": "With IdleTineout Parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "VM Mount Cancel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n               \"reason\": \"Mount Removed via REST API\",\r\n               \"timeoutInSec\": 120\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/739152/op/cancel",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"739152",
+								"op",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VMware Instant Access",
+			"item": [
+				{
+					"name": "List of vproxies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vproxies",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vproxies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Query all protectd VMs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms?fl=hostname,name,osname,uuid",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "hostname,name,osname,uuid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Backups of sql-01",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Backup Backups of sql-01",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups?fl=id",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "id"
+								}
+							]
+						},
+						"description": "Search for Itemes:  \n    \"links\": [  \n                {  \n                    \"href\": \"https://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/5011cf93-a6d3-1bfb-1bc6-5c6f8b8299a8/backups/1b898fda-00000006-fa07a6ad-5d07a6ad-00085000-a5990156\",  \n                    \"rel\": \"item\"  \nCopy the last value into the variable: {{protectedvms-backup-clientids}}"
+					},
+					"response": []
+				},
+				{
+					"name": "VM Backup Instance of sql-01",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups/{{protectedvms-backup-clientids}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups",
+								"{{protectedvms-backup-clientids}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Instant Access",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "administrator",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Password123!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"recoverMode\": \"Instant\",\r\n\t\"vmName\": \"SQL-01\",\r\n\t\"vCenterHostname\": \"vcenter01.demo.local\",\r\n\t\"vProxyHostname\": \"NW-vProxy01.demo.local\",\r\n\t\"datacenterMoref\": \"datacenter-21\",\r\n    \"computeResourceMoref\": \"domain-s26\",\r\n\t\"hostMoref\": \"domain-s26\",\r\n\t\"powerOn\": false,\r\n\t\"reconnectNic\": false\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://192.168.1.20:9090/nwrestapi/v3/global/vmware/vcenters/vcenter01.demo.local/protectedvms/5011cf93-a6d3-1bfb-1bc6-5c6f8b8299a8/backups/b5938a8c-00000006-f413efab-5c13efab-000d5000-a5990156/instances/1544810411/op/recover",
+							"protocol": "https",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"20"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"vcenter01.demo.local",
+								"protectedvms",
+								"5011cf93-a6d3-1bfb-1bc6-5c6f8b8299a8",
+								"backups",
+								"b5938a8c-00000006-f413efab-5c13efab-000d5000-a5990156",
+								"instances",
+								"1544810411",
+								"op",
+								"recover"
+							]
+						},
+						"description": "it is a /op/recover for instance access\n\nBody\n \n{  \n\t\"recoverMode\": \"Instant\",  \n\t\"vmName\": \"SQL-01\",  \n\t\"vCenterHostname\": \"vcenter01.demo.local\",  \n\t\"vProxyHostname\": \"NW-vProxy01.demo.local\",  \n\t\"datacenterMoref\": \"datacenter-21\",  \n\t\"clusterComputeResourceMoref\": \"domain-c267\",  OR \"CompureRessourceMoref\":\"domain-s26\",   \n\t\"hostMoref\": \"domain-s26\",  \n\t\"powerOn\": false,  \n\t\"reconnectNic\": false  \n}\n\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/VMWare.  \nGet infos from: https://vcenter01.demo.local/mob"
+					},
+					"response": []
+				},
+				{
+					"name": "VM Instant Access explain template",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "administrator",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Password123!",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"recoverMode\": \"Instant\",\r\n\t\"vmName\": \"SQL-01\",\r\n\t\"vCenterHostname\": \"vcenter01.demo.local\",\r\n\t\"vProxyHostname\": \"NW-vProxy01.demo.local\",\r\n\t\"datacenterMoref\": \"datacenter-21\",\r\n    \"computeResourceMoref\": \"domain-s26\",\r\n\t\"hostMoref\": \"domain-s26\",\r\n\t\"powerOn\": false,\r\n\t\"reconnectNic\": false\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/vmware/vcenters/{{vcenter-server}}/protectedvms/{{protectedvms-uuids}}/backups/{{protectedvms-backup-clientids}}/instances/{{instance-recover-instance-id}}/op/recover",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"vmware",
+								"vcenters",
+								"{{vcenter-server}}",
+								"protectedvms",
+								"{{protectedvms-uuids}}",
+								"backups",
+								"{{protectedvms-backup-clientids}}",
+								"instances",
+								"{{instance-recover-instance-id}}",
+								"op",
+								"recover"
+							]
+						},
+						"description": "it is a /op/recover for instance access\n\nBody\n \n{  \n\t\"recoverMode\": \"Instant\",  \n\t\"vmName\": \"SQL-01\",  \n\t\"vCenterHostname\": \"vcenter01.demo.local\",  \n\t\"vProxyHostname\": \"NW-vProxy01.demo.local\",  \n\t\"datacenterMoref\": \"datacenter-21\",  \n\t\"clusterComputeResourceMoref\": \"domain-c267\",  OR \"CompureRessourceMoref\":\"domain-s26\",   \n\t\"hostMoref\": \"domain-s26\",  \n\t\"powerOn\": false,  \n\t\"reconnectNic\": false  \n}\n\nhttps://github.com/juergenschubert/DELLEMC-DPS-ReST-api/tree/master/NetWorker/VMWare.  \nGet infos from: https://vcenter01.demo.local/mob"
+					},
+					"response": []
+				},
+				{
+					"name": "VM Instant Access Job State",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376104",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376104"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Instant Access Job log",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs/1376104/log",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"1376104",
+								"log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VM Mount Cancel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n               \"reason\": \"Mount Removed via REST API\",\r\n               \"timeoutInSec\": 120\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://172.16.10.122:9090/nwrestapi/v3/global/jobs/739169/op/cancel",
+							"protocol": "https",
+							"host": [
+								"172",
+								"16",
+								"10",
+								"122"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"jobs",
+								"739169",
+								"op",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "several others",
+			"item": [
+				{
+					"name": "notification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/notifications",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recovery resources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/recovers?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"recovers"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "count",
+									"disabled": true
+								}
+							]
+						},
+						"description": "What you can find in the NMC Recover tab"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"comment\": \"This rule is to find VMs which start with oracle\",\n            \"dataSourceType\": \"VMware\",\n            \"definitions\": [\n                {\n                    \"operator\": \"StartsWith\",\n                    \"property\": \"Name\",\n                    \"type\": \"VirtualMachine\",\n                    \"value\": \"Oracle\"\n                }\n            ],\n            \"matchType\": \"All\",\n            \"name\": \"New Rule for SQL\"\n}"
+						},
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/rules?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"rules"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "count",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Create a reule for a **dataSourceType**.  Most of the time this is   \ndefinition does include   \n\"operator\": \"Equals\",\"DoesNotEquals\", \"Contains\", \"DoesNotContains\", \"StartsWith\", \"DoesNotStartsWith\"  \n\"property\": \"Name\" or \"Path\"\n\"type\": \"VirtualMachine\", \"Cluster\", \"vApp\", \"VmFolder\", \"Datacenter\",\"ResourcePool\"\n\"value\": \"Oracle\"  \n\nmatchType (All / Any are the posible fields)\nname is straigh forward,"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "567aa0c7-ea5e-44ce-a847-251d6a85830a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "26783457-143f-4c11-bb53-d0e17a11f4c2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "NetWorker/ work with query",
+			"item": [
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "Job with special endtime",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "Password123!",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "administrator",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v2/global/backups?q=saveTime:[\"2019-06-20T21:03:50\" to \"2019-07-24T21:03:50\"]",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v2",
+										"global",
+										"backups"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "saveTime:[\"2019-06-20T21:03:50\" to \"2019-07-24T21:03:50\"]"
+										},
+										{
+											"key": "q",
+											"value": "saveTime:[\"2019-02-20T21:03:50-05:00\" to \"2019-02-24T21:03:50-05:00\"]",
+											"disabled": true
+										},
+										{
+											"key": "fl",
+											"value": "name",
+											"disabled": true
+										},
+										{
+											"key": "fl",
+											"value": "clientHostname,name,creationTime,completionTime",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Query Job Status Copy - succeeded",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs?filter=completionStatus eq \"Succeeded\"",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "completionStatus eq \"Succeeded\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Query Job Status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/jobs?creationTime=Succeeded&state=Completed&completionStatus=Failed&fl=name, adhocjob,completionStatus,state",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "creationTime",
+											"value": "Succeeded"
+										},
+										{
+											"key": "state",
+											"value": "Completed"
+										},
+										{
+											"key": "completionStatus",
+											"value": "Failed"
+										},
+										{
+											"key": "fl",
+											"value": "name, adhocjob,completionStatus,state"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "468e9d73-9d39-4cb8-8b30-3ae738434d62",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8bd8dc68-b656-47c0-9df6-8273a1ebe2f5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Clients",
+					"item": [
+						{
+							"name": "List of  NW Clients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?q=hostname: sql-01.demo.local",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"clients"
+									],
+									"query": [
+										{
+											"key": "fl",
+											"value": "hostname",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "hostname: sql-01.demo.local"
+										}
+									]
+								},
+								"description": "We are discussing here the introdcution of\nFiler and query.\nFilter (fl) for filtering what will come back. So filter to see onyl requestion ressources\n\nand uery to query ressources for a special ressource. Like onyl the infromation from a special client"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "Password123!",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "administrator",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "30f3df0e-e213-47f0-b94c-527a2cff1228",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3535b37-856c-4d7d-9ffb-34331b94d86d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Devices",
+					"item": [
+						{
+							"name": "Query Devices - find DD only",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YWRtaW5pc3RyYXRvcjpFbWNsZWdhdG9AMTIz"
+									},
+									{
+										"key": "Cache-Control",
+										"value": "no-cache"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "10.31.227.39:9090"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "f52ca398-78ba-4d9b-a9ce-c193662b6eb9,c66ab47d-027f-40d7-80e8-f2ac96055f6a"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.11.0"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate"
+									},
+									{
+										"key": "cache-control",
+										"value": "no-cache"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://{{DD}}:9090/nwrestapi/v3/global/devices?q=mediaType:%22Data%20Domain%22&fl=name",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "mediaType:%22Data%20Domain%22"
+										},
+										{
+											"key": "fl",
+											"value": "name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter DataDomainSystems - name and hosts only",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YWRtaW5pc3RyYXRvcjpFbWNsZWdhdG9AMTIz"
+									},
+									{
+										"key": "Cache-Control",
+										"value": "no-cache"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "10.31.227.39:9090"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "bfb88f64-3810-4e96-81f9-51ec2a0ecf4f,53bfc72d-3087-4206-9000-258194118c49"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.11.0"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate"
+									},
+									{
+										"key": "cache-control",
+										"value": "no-cache"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://{{DD}}:9090/nwrestapi/v3/global/datadomainsystems?fl=name,hosts",
+									"protocol": "https",
+									"host": [
+										"{{DD}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"datadomainsystems"
+									],
+									"query": [
+										{
+											"key": "fl",
+											"value": "name,hosts"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get pools",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/pools?",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"pools"
+									],
+									"query": [
+										{
+											"key": "fl",
+											"value": "count",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Backups",
+					"item": [
+						{
+							"name": "Backups from special savetime",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "Password123!",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "administrator",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups?q=saveTime:['2019-02-01T18:00:00' TO '2019-02-22T10:15:00']",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"backups"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "saveTime:['2019-02-01T18:00:00' TO '2019-02-22T10:15:00']"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Backup Savetime last two month",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups?q=saveTime:['2019-01-01T10:00:00' TO '2019-02-20T10:15:00']",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"backups"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "saveTime:['2019-01-01T10:00:00' TO '2019-02-20T10:15:00']"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Backups from special client",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/backups?q=clientHostname:nve.vlab.local",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"backups"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "clientHostname:nve.vlab.local"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "licenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/licenses",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"licenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rules available",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/rules?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"rules"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "count",
+									"disabled": true
+								}
+							]
+						},
+						"description": "What you can find in the NMC Recover tab"
+					},
+					"response": []
+				}
+			],
+			"description": "Intentsion to show zou what zou can do with ReST api and querz a NW Server",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "89964dd8-0970-4903-979e-4ddb18109125",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "21dae55e-69f4-4c09-98d1-1d0ba0dfbef7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "adv_file",
+					"item": [
+						{
+							"name": "Create File Type Device",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deviceAccessInfo\": \"/tmp\",\n    \"mediaType\": \"adv_file\",\n    \"name\": \"adv_file\"\n}\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Label adv_file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"labelWithoutMount\": \"false\",\n   \"pool\": \"Default\"\n\n}\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file/op/label",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file",
+										"op",
+										"label"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mount volume",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"volume\": \"nve191.001\",\n  \"writeEnabled\": true\n}\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file/op/mount",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file",
+										"op",
+										"mount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unmount volume",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"labelWithoutMount\": \"false\",\n   \"pool\": \"Default\"\n\n}\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file/op/unmount",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file",
+										"op",
+										"unmount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete File Type Device",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify volume label",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"pool\": \"Default\"\n}\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file/op/verifylabel",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file",
+										"op",
+										"verifylabel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Volume operation status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"labelWithoutMount\": \"false\",\n   \"pool\": \"Default\"\n\n}\n\n"
+								},
+								"url": {
+									"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices/adv_file/opstatus",
+									"protocol": "https",
+									"host": [
+										"{{server}}"
+									],
+									"port": "9090",
+									"path": [
+										"nwrestapi",
+										"v3",
+										"global",
+										"devices",
+										"adv_file",
+										"opstatus"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get all NW devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/devices?fl=name,mountedVolume",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name,mountedVolume"
+								},
+								{
+									"key": "q",
+									"value": "name: adv_file",
+									"disabled": true
+								},
+								{
+									"key": "fl",
+									"value": "mediaType",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "name: ddve-1.vlab.local",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "mediaType:\"Data Domain\"",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password123!",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "administrator",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0ffc4cd1-ee29-40b4-865f-a51bbc1c83b0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "11366d66-5200-489d-b775-2e331d462f34",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}
