@@ -16,7 +16,7 @@ In this Postman collections I do work with an environment (postman_environment.j
       * start a policy  
       * get a job information with logs  
     * Demo workflow for VMWare
-    * Use Case automation
+    * under construction - Use Case automation
         * ServiceNow add VM Client
             * Get list of current protected VMs
             * Get list of unprotected VMs
