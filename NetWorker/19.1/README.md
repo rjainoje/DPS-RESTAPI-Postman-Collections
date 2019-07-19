@@ -6,9 +6,8 @@ In this Postman collections I do work with an environment (postman_environment.j
 # Content
 * NetWorker  
   * NetWorker 19.1
-  * environment variables - postman_environment.json
-  * Postman collection - postman_collection.json
-    * Authenticate against a NW Server - How to login and what Rest endpoint to use with NetWorker
+    * Authenticate against a NW Server - How to login
+    * ReST endpoints  
     * Demo workflow - create a client and backup a saveset to DD
       * Create a NetWorker client  
       * Create a Protectiongroup  
@@ -28,7 +27,9 @@ In this Postman collections I do work with an environment (postman_environment.j
             * Add Client to right policy
             * Execute the first backup
             * Return the Backup Job ID for this
-
+        * Create policy templates
+            * create policy
+            * create workflow
 
 # swagger file
 When having a swagger api file like one from NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what api calls are available to use. Use NetWorker administrator and password for login.

@@ -13,14 +13,14 @@ In this Postman collections I do work with an environment (postman_environment.j
       * Authenticate against a NW Server - How to login and what Rest endpoint to use with NetWorker
       * Demo workflow - create a client and backup a saveset to DD
         * Create a NetWorker client  
-        * Create a Protectiongroup  
+        * Create a protection group  
         * create a policy  
         * define a workflow for backup  
         * start a policy  
         * get a job information with logs  
       * Demo workflow for VMWare  
-      * First Steps mit Postman and NetWorker
+      * First Steps with Postman and NetWorker
         * REST API NetWorker 18.2.pptx
-      
-      # Usefull Information  
+
+      # Useful Information  
       You will find postman_collection.json and postman_environment.json files which are the collection and the environment variables I am using to make things more transparent.
