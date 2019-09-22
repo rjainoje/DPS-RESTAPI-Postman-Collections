@@ -318,7 +318,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?",
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/clients?type=advanced",
 							"protocol": "https",
 							"host": [
 								"{{server}}"
@@ -340,6 +340,10 @@
 									"key": "q",
 									"value": "hostname: win1.vlab.local",
 									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "advanced"
 								}
 							]
 						},
@@ -365,6 +369,68 @@
 								"global",
 								"protectionpolicies",
 								""
+							],
+							"query": [
+								{
+									"key": "fl",
+									"value": "name"
+								}
+							]
+						},
+						"description": "See what ploicies your networker server does have today right now ?"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all avail workflows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}:9090/nwrestapi/v3/global/protectionpolicies/Exchange%2BBackup?",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"Exchange%2BBackup"
+							],
+							"query": [
+								{
+									"key": "fl ",
+									"value": "name",
+									"disabled": true
+								}
+							]
+						},
+						"description": "See what ploicies your networker server does have today right now ?"
+					},
+					"response": []
+				},
+				{
+					"name": "Get workflow from Policy Exchange",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}::9090/nwrestapi/v3/global/protectionpolicies/Exchange%2BBackup/workflows?fl=name",
+							"protocol": "https",
+							"host": [
+								"{{server}}:"
+							],
+							"port": "9090",
+							"path": [
+								"nwrestapi",
+								"v3",
+								"global",
+								"protectionpolicies",
+								"Exchange%2BBackup",
+								"workflows"
 							],
 							"query": [
 								{
