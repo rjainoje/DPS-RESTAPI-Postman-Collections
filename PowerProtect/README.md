@@ -3,6 +3,6 @@ You will find auter GA date postman_collection.json and postman_environment.json
 
 # Content
 * PowerProtect
-    * PowerProtect 19.1
+    * PowerProtect 19.2
         * environment variables
         * automation request for PowerProtect
