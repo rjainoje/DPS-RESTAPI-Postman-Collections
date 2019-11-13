@@ -3,6 +3,10 @@ You will find auter GA date postman_collection.json and postman_environment.json
 
 # Content
 * PowerProtect
+    * PowerProtect 19.1
+	* there was no REST API available with 19.1
     * PowerProtect 19.2
         * environment variables
         * automation request for PowerProtect
+     * PowerProtect 19.3
+        * whenever this will go GA you'll find some updates
