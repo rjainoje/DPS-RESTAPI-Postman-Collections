@@ -9,4 +9,5 @@ You will find auter GA date postman_collection.json and postman_environment.json
         * environment variables
         * automation request for PowerProtect
      * PowerProtect 19.3
-        * whenever this will go GA you'll find some updates
+        * environment variables
+        * automation request for PowerProtect

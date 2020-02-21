@@ -1,0 +1,1383 @@
+{
+	"info": {
+		"_postman_id": "0c055755-d4c3-4ecb-8728-0689d4fec1ff",
+		"name": "PowerProtect 19.3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "19.3",
+			"item": [
+				{
+					"name": "Authentication and Authorization",
+					"item": [
+						{
+							"name": "Log into with user credential",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ecb530a6-2048-4c83-9e99-2dd5f798efda",
+										"exec": [
+											"//console.log(\"Comming form Tests scripting\")",
+											"//console.log(\"The whole response body:...\" +responseBody)",
+											"//JSON Array füllen mit dem Response Body",
+											"json1 = JSON.parse(responseBody)",
+											"//console.log(\"access_token: \" +json1.access_token)",
+											"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+											"pm.environment.set(\"X-auth-token\", json1.access_token);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Password123!\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/login",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiJhM2RmNjY2YS05MzkxLTQ3NTUtOTRkOC1hMDJiOTJmMDk1NTUiLCJhbGciOiJFUzI1NiJ9.eyJqdGkiOiJhOGM0N2E5MC01NzVhLTRiMWUtOTA0NS1jNjkyNzNjMzlkNTYiLCJpc3MiOiJlQ0RNIEFBQSBTZXJ2aWNlIiwiaWF0IjoxNTczNjUyNjU0LCJleHAiOjE1NzM2ODE0NTQsImV4dCI6eyJzeXN0ZW0iOnsicm9sZSI6WyJBZG1pbiJdfSwiYXVkaXQiOnsidWlkIjoiMDAwMDAwMDAtMDAwMC00MDAwLWEwMDAtMDAwMDAwMDAwMDAwIn19LCJzdWIiOiJhZG1pbiIsImF1dGhvcml6YXRpb24tdG9rZW4tYml0bWFwIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJpZCI6IjAwMDAwMDAwLTAwMDAtNDAwMC1hMDAwLTAwMDAwMDAwMDAwMCIsInVzZXJUeXBlIjoiTE9DQUwiLCJ0aW1lc3RhbXAiOjAsImNyZWF0aW9uVGltZSI6MCwidGVuYW50U2NvcGUiOiIvMDAwMDAwMDAtMDAwMC00MDAwLWIwMDAtMDAwMDAwMDAwMDAwLzAwMDAwMDAwLTAwMDAtNDAwMC1hMDAwLTAwMDAwMDAwMDAwMCIsImF1dGhvcml0aWVzIjpbeyJ0ZW5hbnRzIjpbIjAwMDAwMDAwLTAwMDAtNDAwMC1iMDAwLTAwMDAwMDAwMDAwMCJdLCJwcml2aWxlZ2VzIjpbIjE3MTc5ODY5MTgzIl0sInJvbGVzIjpbIjJiYzkwMDIwLTc2NzUtMDEzNi0yOWU5LTViYmQzY2U3MjliMCJdfV19LCJydGkiOiJhYjAzOTM1NS0wZDJiLTQ0YzQtYThlMi1iN2QyZDI1MjBiZGEifQ.EAYGAcvjY7gkSk-UZjL2D-iVoZu9XQOfuIxzRKAyUpg-XzAGHYi81gH0VgXFHWH_801RwqxL1lozAoj7j0nmHg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n  \"refresh_token\": \"string\",\r\n  \"grant_type\": \"authorization_code\",\r\n  \"scope\": \"string\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/logout",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Renew the Access Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{AUTH-TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/logout",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Asset Management",
+					"item": [
+						{
+							"name": "Get all Assets",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "39662068-c55d-4d81-a9f9-7972280ce915",
+										"exec": [
+											"console.log(\"Comming form Tests scripting\")",
+											"console.log(\"The whole response body:...\" +responseBody)",
+											"//JSON Array füllen mit dem Response Body",
+											"//json1 = JSON.parse(responseBody)",
+											"//console.log(\"access_token: \" +json1.access_token)",
+											"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+											"//pm.environment.set(\"X-auth-token\", json1.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "Value contains invalid newline characters.",
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/assets?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"assets"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Assets per id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/assets/{{asset-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"assets",
+										"{{asset-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Protection Policies",
+					"item": [
+						{
+							"name": "Get all Protection Policies",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf70d0b2-9442-49d1-8655-bb34be40e6ee",
+										"exec": [
+											"console.log(\"Comming form Tests scripting\")",
+											"console.log(\"The whole response body:...\" +responseBody)",
+											"//JSON Array füllen mit dem Response Body",
+											"//json1 = JSON.parse(responseBody)",
+											"//console.log(\"access_token: \" +json1.access_token)",
+											"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+											"//pm.environment.set(\"X-auth-token\", json1.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/protection-policies?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"protection-policies"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ger a Protection Policy by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/protection-policies/{{Protection-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"protection-policies",
+										"{{Protection-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Assets by Protection Policy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/protection-policies/{{Protection-id}}/asset-assignments?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"protection-policies",
+										"{{Protection-id}}",
+										"asset-assignments"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Inventroy Soure Management",
+					"item": [
+						{
+							"name": "Get all Inventory Sources",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/inventory-sources?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"inventory-sources"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an Inventory Sources by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/inventory-sources/{{inventory-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"inventory-sources",
+										"{{inventory-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Monitoring",
+					"item": [
+						{
+							"name": "Get all Alerts",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/alerts?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"alerts"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Aler acknowledgement",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/alerts/acknowledgements?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"alerts",
+										"acknowledgements"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an Alert message by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/alerts/{{alert-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"alerts",
+										"{{alert-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all AuditLogs resource",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/audit-logs?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"audit-logs"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an AuditLog resource by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/audit-logs/{{audit-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"audit-logs",
+										"{{audit-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update an AuditLog resource by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string (uuid)\",\r\n  \"createdAt\": \"string (date-time)\",\r\n  \"auditType\": \"PROTECTION_POLICY\",\r\n  \"messageID\": \"string\",\r\n  \"messageArgs\": [\r\n    \"string\"\r\n  ],\r\n  \"changeDescription\": \"string\",\r\n  \"changedTime\": \"string (date-time)\",\r\n  \"changedBy\": {\r\n    \"id\": \"string\",\r\n    \"username\": \"string\"\r\n  },\r\n  \"changedObject\": {\r\n    \"id\": \"string\",\r\n    \"resourceType\": \"string\",\r\n    \"resourceName\": \"string\"\r\n  },\r\n  \"before\": \"string\",\r\n  \"after\": \"string\",\r\n  \"userNote\": {\r\n    \"note\": \"string\",\r\n    \"username\": \"string\",\r\n    \"updatedTime\": \"string (date-time)\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/audit-logs/{id}/notes?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"audit-logs",
+										"{id}",
+										"notes"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Activities",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/activities?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"activities"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an Activities by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/activities/{{activity-id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"activities",
+										"{{activity-id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Compliance",
+					"item": [
+						{
+							"name": "Get all Compliance Results",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/compliance-results?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"compliance-results"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Compliance Results by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/compliance-results///{{compliance_results_by_id}}?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"compliance-results",
+										"",
+										"",
+										"{{compliance_results_by_id}}"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Compliance Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": " {{X-auth-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{ppdm}}:8443/api/v2/compliance-details?",
+									"protocol": "https",
+									"host": [
+										"{{ppdm}}"
+									],
+									"port": "8443",
+									"path": [
+										"api",
+										"v2",
+										"compliance-details"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "queryfilter",
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": "orderby",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
