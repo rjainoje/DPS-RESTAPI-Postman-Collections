@@ -14,4 +14,4 @@ AVE config automation.postman_collection.json
 After the import yo do have all Rest API calls for a automated ave deployment.
 
 If you are looking for a PowerCLI automation to get ave ova/ovf deployed have you look at:  
-https://github.com/juergenschubert/DER-Video-Podcast-DPS  
+https://github.com/juergenschubert/DER-Video-Podcast-DPS/tree/master/PowerCLi%20ova%20deployment 
