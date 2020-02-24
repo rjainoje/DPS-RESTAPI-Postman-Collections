@@ -24,7 +24,7 @@ site_name:  'DELLEMC-test'
 
 # Email server
 # Hostname or IP address of the mail server used to send notification emails to EMC
-emailserver:  'mailhub.lss.emc'
+emailserver:  'mail.vlab.local'
 
 # Email Server IP Protocol
 # IP protocol used by the email server
@@ -33,7 +33,7 @@ IPProtocol: IPV4
 
 # Email sender address
 # The email address used for sending notification emails to EMC
-emailsender:  'e2e@emc.com'
+emailsender:  'e2e@vlab.local'
 
 # EMC Site ID/CSI Party ID
 # The site ID is a Dell EMC-issued unique identifier that ties hardware and software to a customer's information in the dial-home system and to support contracts. An incorrect or blank site ID may lead to delays when you contact Customer Support.<br/>- If you do not know your site ID, contact your Dell EMC account team or Dell EMC Customer Service for assistance.<br/>- If you cannot determine your site ID, leave the field blank. In this case, the Avamar server does not send dial-home requests to Dell EMC.
@@ -69,11 +69,11 @@ company_contact_name:  'e2e'
 
 # Company contact phone number
 # The phone number of the administrator managing this Avamar server (digits, plus, parenthesis, dash, space - use 'x' for extension)
-company_contact_phone_number:  '5084352075'
+company_contact_phone_number:  '+491739182555'
 
 # Company contact email address
 # The email address of the administrator managing this Avamar server
-company_contact_email_address:  'e2e@emc.com'
+company_contact_email_address:  'e2e@vlab.local'
 
 # Server location
 # Description of where this server is located at the customer site (i.e. 'Server Room #5', 'Row A', 'Rack #2', etc.)
