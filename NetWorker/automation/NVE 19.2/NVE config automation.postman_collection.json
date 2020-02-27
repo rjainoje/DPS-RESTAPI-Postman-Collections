@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "5d93835b-74f2-4b7d-99e1-2a5b3d2f9493",
+		"name": "NVE config automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check if NetWorkerInstaller is available on AVE Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{nve}}:7543/avi",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi"
+					]
+				},
+				"description": "Wait until you ave installer is up and running"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f3f7389-8517-4254-8271-429ab24e89ad",
+						"exec": [
+							"//console.log(\"Comming form Tests scripting\")",
+							"",
+							"",
+							"//console.log(\"The whole response body:...\" +responseBody)",
+							"",
+							"",
+							"//JSON Array füllen mit dem Response Body",
+							"json1 = JSON.parse(responseBody)",
+							"//console.log(\"access_token: \" +json1.access_token)",
+							"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+							"pm.environment.set(\"access_token\", json1.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "application",
+						"value": "json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "root",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{nve}}:7543/avi/service/api/security/login",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"security",
+						"login"
+					]
+				},
+				"description": "Login to get the security token from server.\r\nFire a POST request to get security token through URL https://<avamar-server>:7543/avi/service/api/security/login with the valid user name and password, the security token is contained in the response if login successfully. You could refer previous sections about “security services” for the detail API information."
+			},
+			"response": []
+		},
+		{
+			"name": "nve packages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "JSESSIONID",
+						"type": "text",
+						"value": "{{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{nve}}:7543/avi/service/api/packages",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"packages"
+					]
+				},
+				"description": "FInd the packages you wanana install from the install manager\nfind: \"title\": \"\nthis content will be used below to identify the package we wanna work with"
+			},
+			"response": []
+		},
+		{
+			"name": "NveConfig-19.2.0.112",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "JSESSIONID",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{nve}}:7543/avi/service/api/packages/NveConfig-19.2.0.112",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"packages",
+						"NveConfig-19.2.0.112"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userinput",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "JSESSIONID",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{ave}}:7543/avi/service/api/userinput/ave-config?",
+					"protocol": "https",
+					"host": [
+						"{{ave}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"userinput",
+						"ave-config"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Now lets get the userinput data we will copy and paste into a yaml file and give back the installer.\nbe patient this can take a while ... in my enviroment"
+			},
+			"response": []
+		},
+		{
+			"name": "install",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "JSESSIONID",
+						"type": "text",
+						"value": "{{access_token}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userinput",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/NVE-19-2-Input-Params.yaml"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{nve}}:7543/avi/service/api/packages/install/NveConfig-19.2.0.112",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"packages",
+						"install",
+						"NveConfig-19.2.0.112"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{nve}}:7543/avi/service/api/messages",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"port": "7543",
+					"path": [
+						"avi",
+						"service",
+						"api",
+						"messages"
+					]
+				},
+				"description": "Monitor the package installation status until complete.\r\nThere should be a loop to monitor the installation status, fire the GET requests to get the installation messages through URL https://<avamar-server>:7543/ /avi/service/api/messages/<index> (/avi/service/api/messages/<index>), the response contains the installation messages, once get the installation messages, check the status of each message. If the status is “completed”, that means installation completes successfully; If the status is “aborted”, means installation aborts; If the status is “failed”, means installation fails. You could refer previous sections about “message services” for the detail API information."
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "JSESSIONID",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{nve}}/:7543//avi/service/api/security/logout",
+					"protocol": "https",
+					"host": [
+						"{{nve}}"
+					],
+					"path": [
+						":7543",
+						"",
+						"avi",
+						"service",
+						"api",
+						"security",
+						"logout"
+					],
+					"variable": [
+						{
+							"key": "7543",
+							"value": ""
+						}
+					]
+				},
+				"description": "Logout from the server.\r\nFire a POST request to logout from server through URL https://<avamar-server>:7543/avi/service/api/security/logout. You could refer previous sections about “security services” for the detail API information."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
