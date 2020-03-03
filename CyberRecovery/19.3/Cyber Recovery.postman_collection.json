@@ -238,6 +238,122 @@
 						"description": "Get all storage end points"
 					},
 					"response": []
+				},
+				{
+					"name": "storage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/storage",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"storage"
+							]
+						},
+						"description": "Get all storage end points"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "apps",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/apps",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"apps"
+							]
+						},
+						"description": "Get all storage end points"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
