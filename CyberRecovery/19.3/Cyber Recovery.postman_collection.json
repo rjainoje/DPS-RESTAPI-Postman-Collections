@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "a45f498b-ce4b-45c0-bfc6-af4e09ebb6c7",
+		"name": "Cyber Recovery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									"//console.log(\"Comming form Tests scripting\")",
+									"",
+									"",
+									"//console.log(\"The whole response body:...\" +responseBody)",
+									"",
+									"",
+									"//JSON Array füllen mit dem Response Body",
+									"json1 = JSON.parse(responseBody)",
+									"//console.log(\"access_token: \" +json1.access_token)",
+									"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+									"pm.environment.set(\"access_token\", json1.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Password123!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/login",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "14778/cr",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{hostname}}:14778/cr",
+					"protocol": "https",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "14778",
+					"path": [
+						"cr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2 swagger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{hostname}}:14780//v2.json",
+					"protocol": "https",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "14780",
+					"path": [
+						"",
+						"v2.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v3 swagger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{hostname}}:14780/v3.json",
+					"protocol": "https",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "14780",
+					"path": [
+						"v3.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v4 swagger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{hostname}}:14780/swagger.json",
+					"protocol": "https",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "14780",
+					"path": [
+						"swagger.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
