@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "51313916-ce51-4a9c-a944-83c86b656ff5",
+		"_postman_id": "eaa09210-4028-42ea-8fc0-8abed21e956f",
 		"name": "DataDomain",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,6 +10,25 @@
 			"item": [
 				{
 					"name": "Login user/Password - return X-DD-AUTH-TOKEN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1efe9aca-e28d-4ac6-a533-27a1d9545dcf",
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;",
+									"",
+									"//console.log(\"Comming form Tests scripting\")",
+									"//console.log(\"The whole response body:...\" +responseBody)",
+									"",
+									"pm.environment.set(\"X-DD-AUTH-TOKEN\",postman.getResponseHeader(\"X-DD-AUTH-TOKEN\") );",
+									"pm.environment.set(\"X-DD-UUID\",postman.getResponseHeader(\"X-DD-UUID\") );",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -75,7 +94,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Information API swagger",
@@ -188,7 +208,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Information of you DD",
@@ -733,6 +754,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -775,6 +797,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -855,6 +878,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -971,6 +995,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1050,6 +1075,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1167,6 +1193,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1285,6 +1312,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1511,6 +1539,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1725,6 +1754,7 @@
 									"response": []
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -1935,6 +1965,7 @@
 									"response": []
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -2022,6 +2053,7 @@
 									"response": []
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -2151,6 +2183,7 @@
 									"response": []
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -2193,16 +2226,19 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "cloud-unit",
 					"item": [],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "data-movement-policy",
 					"item": [],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -2320,6 +2356,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -2607,6 +2644,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -2649,9 +2687,11 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "DataDomain Rest API Documentation",
@@ -2857,6 +2897,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -2919,6 +2960,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3169,6 +3211,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3197,6 +3240,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3412,12 +3456,14 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Comp Measurements Support Check ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Comp Measurements Support Check  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/stats/compression/measurements-support-check Get information about measurements support on this system ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3466,36 +3512,42 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement Data Movement information ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Data Movement Policy ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Policy     \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Get List of data movement policies    \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies Create data movement policy    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Delete a data movement policy    \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Get a data movement policy    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement-policies/{ID} Modify a data movement policy ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Data Movement Stats Files",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Files  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/files Get Data Movement file level information",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Data Movement Stats Mtrees",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Mtrees  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Data Movement Stats Recall",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Data Movement Stats Recall  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/data-movement/stats/mtrees Get Data Movement mtree level information ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Ddboost ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Ddboost  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Get the DDBoost configuration    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost Modify DDBoost configuration    \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3582,6 +3634,7 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Ddboost File Replication Stats  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/file-replication/stats DDBoost File Replication stats ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3673,6 +3726,7 @@
 						}
 					],
 					"description": "DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n     \r\n**Ddboost Storage Units   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Get DDBoost storage unit information     \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units Create a Storage Unit    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Delete a Storage Unit    \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Get a DDBoost storage unit    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/ddboost/storage-units/{ID} Modify a Storage Unit ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3781,12 +3835,14 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Licenses ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Licenses   \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses    \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Delete all ELMS/DD licenses or restore to the embedded evaluation licenses  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Get licenses information    \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/licenses Add/Delete DD licenses or update ELMS licenses or checkout/checkin served licenses",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -3834,6 +3890,7 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mdtags   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags Retrieve list of objects matching supplied tag name, value, or time criteria    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Remove object from metadata tag store  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Get the set of tags for an object    \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mdtags/{ID} Set or clear a set of metadata tags for an object",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4007,12 +4064,14 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mtrees   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees Get MTree information    \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees Create an MTree    \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Delete an MTree  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Get an MTree  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID} Modify an MTree  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Mtrees Id Rlfiles ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Mtrees Id Rlfiles \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Get a list of retention-lock files in an mtree  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/mtrees/{ID}/rlfiles Set or Reset Retention-Lock on a file  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4083,6 +4142,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4159,12 +4219,14 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Networks ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Networks \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/networks Get network information  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/networks/{ID} Get a network info detail  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4363,48 +4425,56 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Services",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Services \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services Show status of services\r\n**Services License Server \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/license-server Get license server information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/license-server Set or reset license server information ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Services Ntp",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Services Ntp \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/ntp Get NTP Settings information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/ntp Modify an NTP Settings  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Settings",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Settings \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/settings Get Settings information  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/settings Modify an Settings  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Snapshots",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Snapshots  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/snapshots Get list of snapshot information  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/snapshots/{ID} Get a snapshot   \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Snmp",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Snmp  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/snmp Show SNMP configuration  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/snmp Modify SNMP configuration   Existing information will be replaced by new input  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Stats",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n**Stats \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/stats Get stats information ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Stats Capacity",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Stats Capacity \r\nGET /rest/v2.0/dd-systems/{{SYSTEM-ID}}/stats/capacity Get system level capacity stats details   \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4449,12 +4519,14 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**System \r\nGET /rest/v1.0/system Get system information. ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Iscsi",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n  \r\n**Iscsi   \r\nIscsi Show/Hide List Operations Expand Operations  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/iscsi Show iSCSI configuration  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/services/iscsi Modify iSCSI configuration   Existing information will be replaced by new input ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -4704,42 +4776,49 @@
 						}
 					],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Tenant Units  \r\nGET https://{{DD}}:3009/rest/v1.0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Get Tenant Units list on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units Create a Tenant Unit  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Delete a Tenant Unit  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Get a Tenant Unit  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenant-units/{ID} Modify a Tenant Unit",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Tenants",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Tenants  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants Get Tenants on a DD system  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants Create a Tenant  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Delete a Tenant  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Get a Tenant  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/smt/tenants/{ID} Modify a Tenant  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Users",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Users   \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users Get users information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users Create a User  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Delete a User  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Get a User  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/users/{ID} Modify a User  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Vdisk Devgrps",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Vdisk Devgrps  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Delete a VDisk device group  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Get a VDisk device group  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Get VDisk device group information  \r\nPOST /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups Create a VDisk device group  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/device-groups/{ID} Modify a VDisk device group  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Vdisk Devices  ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\n**Vdisk Devices  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify a VDisk device  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify multiple VDisk devices  \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Delete a list of VDisk devices  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Get VDisk device information  \r\nPOST /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Create a VDisk device  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices Modify one or more VDisk devices  \r\nDELETE /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Delete a VDisk device  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Modify a VDisk device  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Vdisk Pools ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/devices/{ID} Get a VDisk device  \r\n\r\n**Vdisk Pools  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Get VDisk pool information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools Create a VDisk pool  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Delete a VDisk pool  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Get a VDisk pool  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/pools/{ID} Modify a VDisk pool  \r\n",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Vdisk Stimgs  ",
 					"item": [],
 					"description": "*DataDomain Rest API Documentation  \r\nHeaders:   \r\nContent-Type:application/json  \r\nAccept:application/json  \r\nX-DD-AUTH-TOKEN:{{X-DD-AUTH-TOKEN}}   \r\n\r\n**Vdisk Stimgs  \r\n\r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nPOST https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Create a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Modify multiple VDisk static images  \r\nDELETE https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Delete a VDisk static image  \r\nGET https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT https://{{DD}}:3009/rest/v1  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images Get VDisk static images information  \r\nGET /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  \r\nPUT /rest/v2  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Modify a VDisk static image  \r\nGET /rest/v3  0/dd-systems/{{SYSTEM-ID}}/protocols/vdisk/static-images/{ID} Get a VDisk static image  ",
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
 			],
@@ -4765,7 +4844,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Automation",
@@ -5224,6 +5304,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -5313,6 +5394,7 @@
 							"response": []
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -5460,6 +5542,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
 			],
@@ -5484,7 +5567,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Filter & Sort",
@@ -5629,7 +5713,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -5661,5 +5746,6 @@
 			"value": "9ff57880d4a350d07a7cd846f9db125d5",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
