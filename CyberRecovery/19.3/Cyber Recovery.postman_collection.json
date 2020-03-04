@@ -16,17 +16,13 @@
 							"script": {
 								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
 								"exec": [
-									"//console.log(\"Comming form Tests scripting\")",
 									"",
-									"",
-									"//console.log(\"The whole response body:...\" +responseBody)",
-									"",
-									"",
-									"//JSON Array füllen mit dem Response Body",
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
 									"json1 = JSON.parse(responseBody)",
-									"//console.log(\"access_token: \" +json1.access_token)",
-									"//setzen den Token in eine Environment Variable für weitere Automatisierung",
-									"pm.environment.set(\"access_token\", json1.accessToken);"
+									"",
+									"pm.environment.set(\"access_token\", json1.accessToken);",
+									"pm.environment.set(\"user_id\", json1.user.id);",
+									"pm.environment.set(\"refresh_token\", json1.refreshToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -64,54 +60,6 @@
 								"cr",
 								"v3",
 								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Logout",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text"
-							},
-							{
-								"key": "X-CR-AUTH-TOKEN",
-								"value": "{{access_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://{{hostname}}:14778/cr/v3/logout/{{user_id}}",
-							"protocol": "https",
-							"host": [
-								"{{hostname}}"
-							],
-							"port": "14778",
-							"path": [
-								"cr",
-								"v3",
-								"logout",
-								"{{user_id}}"
 							]
 						}
 					},
@@ -177,6 +125,54 @@
 						"description": "Retrieves users that the current user is authorized to view"
 					},
 					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/logout/{{user_id}}",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"logout",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -240,43 +236,35 @@
 					"response": []
 				},
 				{
-					"name": "storage",
+					"name": "Get all MGMTDDS Systems from admin",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"id": "10e3dc10-f838-4284-bcd2-174ce9dd2328",
 								"exec": [
-									""
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"mgmtdd_id\", jsonData[0].id)"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "X-CR-AUTH-TOKEN",
-								"type": "text",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{hostname}}:14778/cr/v3/storage",
 							"protocol": "https",
@@ -289,8 +277,7 @@
 								"v3",
 								"storage"
 							]
-						},
-						"description": "Get all storage end points"
+						}
 					},
 					"response": []
 				}
@@ -301,43 +288,33 @@
 			"name": "Application",
 			"item": [
 				{
-					"name": "apps",
+					"name": "Get APPS List from admin",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"id": "48dbaf4b-8395-47b0-9732-c0a098c64fdb",
 								"exec": [
-									""
+									"tests[\"response code is 200\"] = responseCode.code === 200;"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "X-CR-AUTH-TOKEN",
-								"type": "text",
-								"value": "{{access_token}}"
+								"value": "{{access_token}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{hostname}}:14778/cr/v3/apps",
 							"protocol": "https",
@@ -350,8 +327,108 @@
 								"v3",
 								"apps"
 							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Policy",
+			"item": [
+				{
+					"name": "Run POLICY SCL from admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25b22b47-b700-4202-8824-b9f442bfe820",
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyID\": \"{{policy_id}}\"\n}"
 						},
-						"description": "Get all storage end points"
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/copy",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"copy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get POLICY list from admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/policies",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"policies"
+							]
+						}
 					},
 					"response": []
 				}
