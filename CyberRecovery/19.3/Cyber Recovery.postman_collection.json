@@ -604,7 +604,8 @@
 								"actions",
 								"sync"
 							]
-						}
+						},
+						"description": "A Sync action (or replication) replicates an MTree from the production system to the CR Vault, synchronizing with the previous replication of that MTree."
 					},
 					"response": []
 				},
@@ -658,7 +659,173 @@
 								"actions",
 								"sync-copy"
 							]
+						},
+						"description": "A Sync Copy action combines the Sync and Copy actions into one request. It first performs the replication and then creates a PIT copy."
+					},
+					"response": []
+				},
+				{
+					"name": "copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
 						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policyID\": \"5bc48a2694422f0001fe0ecc\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/copy",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"copy"
+							]
+						},
+						"description": "A Copy action makes a point-in-time (PIT) copy of an Mtree's most recent replication in the CR Vault and stores it in the replication archive"
+					},
+					"response": []
+				},
+				{
+					"name": "Copy Lock",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policyID\": \"5bc48a2694422f0001fe0ecc\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/copy-lock",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"copy-lock"
+							]
+						},
+						"description": "A Copy action makes a point-in-time (PIT) copy of an Mtree's most recent replication in the CR Vault and stores it in the replication archive"
+					},
+					"response": []
+				},
+				{
+					"name": "seure copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policyID\": \"5e3be0b594422f00011e7750\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/securecopy",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"securecopy"
+							]
+						},
+						"description": "A Secure Copy action performs a replication, creates a PIT copy, and then retention locks all files in the PIT copy."
 					},
 					"response": []
 				}
