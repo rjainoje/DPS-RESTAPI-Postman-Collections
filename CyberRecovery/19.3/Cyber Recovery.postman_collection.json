@@ -64,6 +64,117 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Login refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									"",
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"json1 = JSON.parse(responseBody)",
+									"",
+									"pm.environment.set(\"access_token\", json1.accessToken);",
+									"pm.environment.set(\"user_id\", json1.user.id);",
+									"pm.environment.set(\"refresh_token\", json1.refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-REFRESH-TOKEN",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Password123!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/refresh/{{user_id}}",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"refresh",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-REFRESH-TOKEN",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/logout/{{user_id}}",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"logout",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -123,54 +234,6 @@
 							]
 						},
 						"description": "Retrieves users that the current user is authorized to view"
-					},
-					"response": []
-				},
-				{
-					"name": "Logout",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "ecebe76a-72f6-4a35-b54e-c840ba77efbb",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text"
-							},
-							{
-								"key": "X-CR-AUTH-TOKEN",
-								"value": "{{access_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://{{hostname}}:14778/cr/v3/logout/{{user_id}}",
-							"protocol": "https",
-							"host": [
-								"{{hostname}}"
-							],
-							"port": "14778",
-							"path": [
-								"cr",
-								"v3",
-								"logout",
-								"{{user_id}}"
-							]
-						}
 					},
 					"response": []
 				}
@@ -338,6 +401,52 @@
 			"name": "Policy",
 			"item": [
 				{
+					"name": "Get POLICY list from admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/policies",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Run POLICY SCL from admin",
 					"event": [
 						{
@@ -385,9 +494,15 @@
 						}
 					},
 					"response": []
-				},
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Vault",
+			"item": [
 				{
-					"name": "Get POLICY list from admin",
+					"name": "Get VAULT state",
 					"event": [
 						{
 							"listen": "test",
@@ -407,17 +522,17 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "X-CR-AUTH-TOKEN",
-								"value": "{{access_token}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{access_token}}"
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}:14778/cr/v3/policies",
+							"raw": "https://{{hostname}}:14778/cr/v3/vault/state",
 							"protocol": "https",
 							"host": [
 								"{{hostname}}"
@@ -426,7 +541,122 @@
 							"path": [
 								"cr",
 								"v3",
-								"policies"
+								"vault",
+								"state"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Action",
+			"item": [
+				{
+					"name": "sync",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policyID\": \"5e3be0b594422f00011e7750\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/sync",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sync-copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d3c6d6c-68c0-4207-9be0-0f42a833504c",
+								"exec": [
+									"tests[\"response code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"policy_id\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CR-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"policyID\": \"5bc48a2694422f0001fe0ecc\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}:14778/cr/v3/actions/sync-copy",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "14778",
+							"path": [
+								"cr",
+								"v3",
+								"actions",
+								"sync-copy"
 							]
 						}
 					},
