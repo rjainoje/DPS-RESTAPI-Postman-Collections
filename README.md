@@ -1,7 +1,7 @@
 # DELLEMC-DPS-ReST-api
 ReST api for DELL EMC DPS products like NetWorker, DataDomain, Avamar, and more
 
-This repository contains many ReST API collection for Postman https://www.getpostman.com/downloads/.  
+This repository contains many ReST API collections for Postman https://www.getpostman.com/downloads/.  
 In this Postman collections I do work with an environment (postman_environment.json) where I define all variables needed to work with the ReST Api like Server or login or auth token where needed and the api collection (postman_collection.json) where I do use this variable. So make sure you do import the environment plus the collection
 
 
