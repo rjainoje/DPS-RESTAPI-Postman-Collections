@@ -1,0 +1,1892 @@
+{
+	"info": {
+		"_postman_id": "5f1bdf28-f44b-4db5-9710-491c9f7fce7f",
+		"name": "PowerProtect 19.5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login and get a Token",
+			"item": [
+				{
+					"name": "Login and get a token - first step",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1bf7c93d-5d80-404c-a241-69a2fc0b7830",
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"let token = jsonData.access_token;",
+									"pm.environment.set('authToken', token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"{{ppdmuser}}\",\"password\":\"{{ppdmpasswd}}\"}"
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/login",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "86b093af-3810-4156-8848-59adc406f5d6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "452c1aec-5980-4d56-bcde-450d3cb9129a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Asset Management",
+			"item": [
+				{
+					"name": "Get all Assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1521f2f-f21a-4b07-928a-67fef0daadba",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/assets?orderby=orderby&pageSize=10000",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"assets"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "10000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assets per id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/assets/{{asset-id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"assets",
+								"{{asset-id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all copies by Asset",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " {{X-auth-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/assets/3882b814-a976-5f2a-a789-1e036692c570/copies",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"assets",
+								"3882b814-a976-5f2a-a789-1e036692c570",
+								"copies"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all copy-map by asset id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " {{X-auth-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/assets/3882b814-a976-5f2a-a789-1e036692c570/copy-map",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"assets",
+								"3882b814-a976-5f2a-a789-1e036692c570",
+								"copy-map"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Protection Policies",
+			"item": [
+				{
+					"name": "Get all Protection Policies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53cb4748-8312-4c4c-8531-1f1581376149",
+								"exec": [
+									"console.log(\"Comming form Tests scripting\")",
+									"console.log(\"The whole response body:...\" +responseBody)",
+									"//JSON Array füllen mit dem Response Body",
+									"//json1 = JSON.parse(responseBody)",
+									"//console.log(\"access_token: \" +json1.access_token)",
+									"//setzen den Token in eine Environment Variable für weitere Automatisierung",
+									"//pm.environment.set(\"X-auth-token\", json1.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/protection-policies",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"protection-policies"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Asset-id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b4acd9f-fb54-4e04-ad67-a5ebcd1bcc16",
+								"exec": [
+									"data = JSON.parse(responseBody)",
+									"pm.environment.set(\"asset-id\", data.content[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " {{X-auth-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/assets?filter=name eq \"alb-ansible\"",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"assets"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "name eq \"alb-ansible\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Policy-id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "239119f2-ff2f-40ef-9c6e-19f5a6dbed67",
+								"exec": [
+									"data = JSON.parse(responseBody)",
+									"pm.environment.set(\"policy-id\", data.content[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " {{X-auth-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/protection-policies?filter=name eq \"PLC1\"",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"protection-policies"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "name eq \"PLC1\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ger a Protection Policy by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/protection-policies/4406de64-2514-440d-8a26-89b70c9fa334",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"protection-policies",
+								"4406de64-2514-440d-8a26-89b70c9fa334"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Assets by Protection Policy id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " {{X-auth-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/protection-policies/4406de64-2514-440d-8a26-89b70c9fa334/asset-assignments",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"protection-policies",
+								"4406de64-2514-440d-8a26-89b70c9fa334",
+								"asset-assignments"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Policy - Add Asset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99442f95-0816-49b0-85f1-9f502bfbe00a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"{{asset-id}}\"]"
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/protection-policies/{{policy-id}}/asset-assignments",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"protection-policies",
+								"{{policy-id}}",
+								"asset-assignments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inventroy Soure Management",
+			"item": [
+				{
+					"name": "Get all Inventory Sources",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/inventory-sources",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"inventory-sources"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Inventory Sources by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/inventory-sources/{{inventory-id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"inventory-sources",
+								"{{inventory-id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Monitoring",
+			"item": [
+				{
+					"name": "Get all Alerts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/alerts",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"alerts"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Aler acknowledgement",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/alerts/acknowledgements",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"alerts",
+								"acknowledgements"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Alert message by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/alerts/{{alert-id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"alerts",
+								"{{alert-id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all AuditLogs resource",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/audit-logs",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"audit-logs"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an AuditLog resource by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/audit-logs/{{audit-id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"audit-logs",
+								"{{audit-id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an AuditLog resource by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string (uuid)\",\r\n  \"createdAt\": \"string (date-time)\",\r\n  \"auditType\": \"PROTECTION_POLICY\",\r\n  \"messageID\": \"string\",\r\n  \"messageArgs\": [\r\n    \"string\"\r\n  ],\r\n  \"changeDescription\": \"string\",\r\n  \"changedTime\": \"string (date-time)\",\r\n  \"changedBy\": {\r\n    \"id\": \"string\",\r\n    \"username\": \"string\"\r\n  },\r\n  \"changedObject\": {\r\n    \"id\": \"string\",\r\n    \"resourceType\": \"string\",\r\n    \"resourceName\": \"string\"\r\n  },\r\n  \"before\": \"string\",\r\n  \"after\": \"string\",\r\n  \"userNote\": {\r\n    \"note\": \"string\",\r\n    \"username\": \"string\",\r\n    \"updatedTime\": \"string (date-time)\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/audit-logs/{id}/notes",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"audit-logs",
+								"{id}",
+								"notes"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Activities",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/activities",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"activities"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Activities by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/activities/{{activity-id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"activities",
+								"{{activity-id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Compliance",
+			"item": [
+				{
+					"name": "Get all Compliance Results",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/compliance-results",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"compliance-results"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Compliance Results by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdm}}:8443/api/v2/compliance-results///{{compliance_results_by_id}}",
+							"protocol": "https",
+							"host": [
+								"{{ppdm}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"compliance-results",
+								"",
+								"",
+								"{{compliance_results_by_id}}"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Compliance Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " {{X-auth-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/compliance-details",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"compliance-details"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "orderby",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Storage Management",
+			"item": [
+				{
+					"name": "Get all storage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed71e379-01a1-4788-998a-a9bd1caa651a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/storage-systems",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"storage-systems"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all DD mtrees",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b6bb617c-f67c-4d6f-993c-338b533918e3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ppdmsrv}}:8443/api/v2/datadomain-mtrees",
+							"protocol": "https",
+							"host": [
+								"{{ppdmsrv}}"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"v2",
+								"datadomain-mtrees"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "queryfilter",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "83e83064-6103-48de-88f9-633cf7546ff4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "44a33ff2-82d8-4c26-9fe5-80877c6ccd74",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

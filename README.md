@@ -40,3 +40,6 @@ There are ReST API commands for NetWorker, Avamar, DataDomain and more will foll
     * PowerProtect 19.1
       * environment variables
       * ReSt api automation collection
+    * PowerProtect 19.5
+      * environment variables
+      * ReSt api automation collection
