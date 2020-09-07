@@ -7,15 +7,18 @@ These collections are a great start to demonstrate REST API functionality of Del
 All you need is, install Postman and import the collections along with the environment variables. You can download Postman here https://www.getpostman.com/downloads/.  
 
 
-Power Protect Data Manager (PPDM) 19.5:
+## Power Protect Data Manager (PPDM) 19.5
 Once you import collections and environment variables (both are JSON), you need to modify the following environment variables.
 
+```
 ppdmsrv - enter your PPDM server or ip
 ppdmuser - PPDM admin user id
 ppdmpasswd - Password
+
 vcenter-host - vcenter host/ip, only needed when you want to perform image restore of a VM
 vcenter-username - vcenter username only needed when you want to perform image restore of a VM
 vcenter-password - vcenter password only needed when you want to perform image restore of a VM
+```
 
 The rest of the variables will be updated automatically based on the API response.
 
@@ -25,6 +28,7 @@ The use cases require you to execute them sequentially, you can use "runner" opt
 
 For example, the use case for performing a Image Level Restore of a VM requires all the 10 calls in the Use Case 4 to be executed.
 
+![](images/ppdm.PNG)
 
 There are ReST API commands for NetWorker, Avamar, DataDomain and more will follow:
 
