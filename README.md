@@ -26,11 +26,11 @@ How can you use this?
 Try various calls (around 25 of them) and then try going through the use cases, such as adding assets to the policy, trigger manual backup of a VM or a policy or perform a Image Level restore of a VM.
 The use cases require you to execute them sequentially, you can use "runner" option in the Postman and select the use case with all the tasks, it will execute all of them.
 
-For example, the use case for performing a Image Level Restore of a VM requires all the 10 calls in the Use Case 4 to be executed.
+For example, the use case for performing an Image Level Restore of a VM requires all the 10 calls in the Use Case 4 to be executed.
 
 ![](images/ppdm.PNG)
 
-There are ReST API commands for NetWorker, Avamar, DataDomain and more will follow:
+
 
 # Content
 * NetWorker  
