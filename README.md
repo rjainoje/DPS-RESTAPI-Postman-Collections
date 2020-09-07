@@ -1,16 +1,29 @@
-# DELLEMC-DPS-ReST-api
-ReST api for DELL EMC DPS products like NetWorker, DataDomain, Avamar, and more
+# DELLEMC-DPS-Postman-Collections-RESTAPIs
+Postman collections for Dell EMC Data Protection APIs.
 
-This repository contains many ReST API collections for Postman https://www.getpostman.com/downloads/.  
-In this Postman collections I do work with an environment (postman_environment.json) where I define all variables needed to work with the ReST Api like Server or login or auth token where needed and the api collection (postman_collection.json) where I do use this variable. So make sure you do import the environment plus the collection
+Postman collections are a collection of pre-defined REST API calls for a particular product or API. In this case, this repository has Postman collections for Dell EMC Data Protection Systems.
+
+These collections are a great start to demonstrate REST API functionality of Dell EMC DPS Products.
+All you need is, install Postman and import the collections along with the environment variables. You can download Postman here https://www.getpostman.com/downloads/.  
 
 
-When having a swagger api file like NetWorker you can use http://editor.swagger.io/#/ and add the swagger file so you do have better option to see what we can use.  
+Power Protect Data Manager (PPDM) 19.5:
+Once you import collections and environment variables (both are JSON), you need to modify the following environment variables.
 
-Another nice online tool to view the json output will be the [json online editor](https://jsoneditoronline.org/)  
+ppdmsrv - enter your PPDM server or ip
+ppdmuser - PPDM admin user id
+ppdmpasswd - Password
+vcenter-host - vcenter host/ip, only needed when you want to perform image restore of a VM
+vcenter-username - vcenter username only needed when you want to perform image restore of a VM
+vcenter-password - vcenter password only needed when you want to perform image restore of a VM
 
-Both will help you to view the swagger file either by copy and paste or upload a exported file into these tools.
+The rest of the variables will be updated automatically based on the API response.
 
+How can you use this?
+Try various calls (around 25 of them) and then try going through the use cases, such as adding assets to the policy, trigger manual backup of a VM or a policy or perform a Image Level restore of a VM.
+The use cases require you to execute them sequentially, you can use "runner" option in the Postman and select the use case with all the tasks, it will execute all of them.
+
+For example, the use case for performing a Image Level Restore of a VM requires all the 10 calls in the Use Case 4 to be executed.
 
 
 There are ReST API commands for NetWorker, Avamar, DataDomain and more will follow:
