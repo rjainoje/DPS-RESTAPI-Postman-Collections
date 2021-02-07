@@ -25,15 +25,6 @@ For example, the use case for performing an Image Level Restore of a VM requires
 ![](images/ppdm.PNG)
 
 # Content
-* PowerProtect 
-    * PowerProtect 19.1
-	* there was no REST API available with 19.1
-    * PowerProtect 19.2
-        * environment variables
-        * automation request for PowerProtect
-     * PowerProtect 19.3
-        * environment variables
-        * automation request for PowerProtect
-     * PowerProtect 19.5
-        * environment variables
-        * automation request for PowerProtect
+* PowerProtect 19.5
+    * environment variables
+    * automation request for PowerProtect

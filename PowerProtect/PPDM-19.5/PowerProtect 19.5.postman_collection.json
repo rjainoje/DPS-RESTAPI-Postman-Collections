@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "880c17eb-f78a-4595-8b43-56a2287848e6",
+		"_postman_id": "fa03b8b2-038d-4b8f-89bc-d4c1a9b6d380",
 		"name": "PowerProtect 19.5",
 		"description": "Postman collections for Dell EMC PPDM 19.5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -15,7 +15,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6f17fc4e-91ea-4751-a707-563fe46eafa4",
 								"exec": [
 									"let jsonData = pm.response.json();",
 									"let token = jsonData.access_token;",
@@ -74,7 +73,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "26e02e49-ac83-45a5-b66d-22b4438ee60e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -84,15 +82,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e8583d7d-32e0-4fb7-af44-e458f59a845a",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Asset Management",
@@ -103,7 +99,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2a7eeb2b-9fe6-4fea-860f-c6f280e4290e",
 								"exec": [
 									""
 								],
@@ -356,7 +351,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "26e23fb4-754a-4a3a-b8bd-ad5fea4af2b2",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -366,15 +360,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6e35dd9c-2987-4a25-8202-82f7ca2ad993",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Protection Policies",
@@ -385,7 +377,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "46929510-49d8-4d83-be98-db7b37e2df32",
 								"exec": [
 									""
 								],
@@ -459,7 +450,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c4f0ee72-f868-4451-99a1-a9f1e3b8b434",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"asset-id\", data.content[0].id);"
@@ -537,7 +527,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "92fef7b2-1342-4c17-a1d1-84cff4eb898d",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"policy-id\", data.content[0].id);"
@@ -740,7 +729,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ab923f53-ee42-40cf-82fa-0f77775ee34e",
 								"exec": [
 									""
 								],
@@ -784,7 +772,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2af1c55e-dee1-4531-9d3e-71adb0058b57",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -794,15 +781,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4f5f4527-7715-41fa-ba5f-2f220d80a2f7",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Inventroy Soure Management",
@@ -813,7 +798,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ce6153fe-a8d5-4613-aaee-bf7b86550d90",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"inventory-id\", data.content[0].name);"
@@ -886,7 +870,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6c18e3b0-14bc-449f-a398-8e82cf4f8ae4",
 								"exec": [
 									""
 								],
@@ -954,8 +937,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Monitoring",
@@ -966,7 +948,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a925884f-163e-42e6-832b-14f1e1934090",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"alert-id\", data.content[0].id);"
@@ -1163,7 +1144,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "18135802-0090-442e-a4c7-baf8c62fa543",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"audit-id\", data.content[0].id);"
@@ -1301,7 +1281,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8243265-24f2-4806-bb30-a2b599cee57f",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"activity-id\", data.content[0].id);"
@@ -1437,7 +1416,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a16152e6-910b-4b26-9659-b9ace997bfab",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1447,15 +1425,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7fd9a1dd-175b-4c6c-afd4-e38f68997991",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Compliance",
@@ -1582,8 +1558,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Storage Management",
@@ -1594,7 +1569,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f3ecc4b7-33c4-4b10-a1d7-77024dcfcdd3",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"storage-system-id\", data.content[0].id);"
@@ -1653,7 +1627,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b997f77c-8b47-407d-ac0d-d3521c4ec90c",
 								"exec": [
 									""
 								],
@@ -1711,7 +1684,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "590f567f-9486-4635-aed0-261f770e2f4c",
 								"exec": [
 									""
 								],
@@ -1770,7 +1742,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4604a9f3-08e7-43af-848d-ec58036a99d6",
 								"exec": [
 									""
 								],
@@ -1822,8 +1793,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Use Case 1 - Assign asset to a policy",
@@ -1834,7 +1804,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e316cde4-a456-487d-9430-62aa6124f7b3",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"policy-id\", data.content[0].id);"
@@ -1923,7 +1892,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "261d4866-2779-4add-b7e2-0f2904ac2f09",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"asset-id\", data.content[0].id);"
@@ -2011,7 +1979,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5f33d96b-e79d-4649-935b-ee82a45abde7",
 								"exec": [
 									""
 								],
@@ -2065,7 +2032,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "08836848-9d41-4578-bdb7-e870fbd47e44",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2075,15 +2041,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2e194247-2a3e-4818-960c-ed2c9427f11f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Use Case 2 - Trigger manual backup of a Policy",
@@ -2094,7 +2058,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6e85a6ce-ce58-4d2f-9fc6-79472ad38594",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"policy-id\", data.content[0].id);"
@@ -2214,7 +2177,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e8230c43-7872-4b5f-a698-90207d45adcd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2224,15 +2186,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1618906a-4cd6-4341-84b6-20bb1616d6f5",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Use Case 3 - Trigger manual backup of a VM",
@@ -2243,7 +2203,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "47304f6b-20a7-4b0c-bb1a-5db44ef22f63",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"policy-id\", data.content[0].id);"
@@ -2332,7 +2291,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cf111f52-8b07-431d-b3b2-27de5393c8fe",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"asset-id\", data.content[0].id);"
@@ -2451,7 +2409,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c18d32bc-135f-4222-8d19-a0f32670cb56",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2461,15 +2418,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ffd8b292-2e6d-4f92-9501-ba2e88f69758",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Use Case 4 - VM Image Level Restore - to New VM",
@@ -2480,7 +2435,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d39b02f5-6dfd-4f38-9025-ef79caefead6",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"source-asset-id\", data.content[0].id);"
@@ -2558,7 +2512,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "adf8c7f8-c057-4c41-a71f-e2e2e7e33133",
 								"exec": [
 									"data = JSON.parse(responseBody)",
 									"pm.environment.set(\"copy-id\", data.content[0].id);"
@@ -2634,7 +2587,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5cb3264d-715e-4e85-91b2-4d508130f425",
 								"exec": [
 									""
 								],
@@ -2708,7 +2660,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c958b2a4-44ae-4d8a-ad7d-f2d0f0ff09c1",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"vcenter-id\", data.content[0].id);"
@@ -2781,7 +2732,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3ea99ff0-2408-40ef-8343-8103b2a37a4b",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"vmware-api-session-id\", data.value);"
@@ -2858,7 +2808,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3473a5f9-a15c-4dad-ab21-52ceee475e16",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"datacenterMoref\", data.value[0].datacenter);"
@@ -2935,7 +2884,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "579fc720-57dd-4437-a69c-66dd10225a42",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"clusterMoref\", data.value[0].cluster);"
@@ -3012,7 +2960,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fa6d3538-4801-40d2-9157-060fa8c6bc5a",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"hostMoref\", data.value[0].host);"
@@ -3089,7 +3036,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1e171980-70c3-4dea-8676-d11afd26f0c0",
 								"exec": [
 									"data = JSON.parse(responseBody)\r",
 									"pm.environment.set(\"dataStoreMoref\", data.value[0].datastore);"
@@ -3166,7 +3112,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8697397c-fa55-4a26-ae7a-10d5d562c943",
 								"exec": [
 									""
 								],
@@ -3208,7 +3153,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6ae4b565-372a-4555-ae1c-17632f882224",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3218,15 +3162,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4615cf3b-724c-4315-8d93-daa7648c278f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"auth": {
@@ -3243,7 +3185,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8da8ecde-7115-40f6-836a-2f21996ee2b2",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3253,13 +3194,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "02f88f5d-3690-455a-865b-8d55edb8ab9e",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
